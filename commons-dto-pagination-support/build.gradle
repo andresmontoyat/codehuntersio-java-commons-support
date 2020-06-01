@@ -1,0 +1,13 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation 'org.springframework.data:spring-data-jpa'
+
+    implementation project(':commons-util')
+    implementation project(':commons-dto')
+}
