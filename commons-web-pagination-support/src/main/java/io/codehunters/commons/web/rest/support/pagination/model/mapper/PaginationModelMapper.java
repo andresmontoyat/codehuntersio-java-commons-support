@@ -1,9 +1,9 @@
-package io.codehunters.commons.web.support.pagination.model.mapper;
+package io.codehunters.commons.web.rest.support.pagination.model.mapper;
 
 import io.codehunters.commons.dto.pagination.support.PaginationQueryDTO;
 import io.codehunters.commons.dto.pagination.support.PaginationResultDTO;
-import io.codehunters.commons.web.support.pagination.model.PaginationRequest;
-import io.codehunters.commons.web.support.pagination.model.PaginationResponse;
+import io.codehunters.commons.web.rest.support.pagination.model.PaginationRequest;
+import io.codehunters.commons.web.rest.support.pagination.model.PaginationResponse;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

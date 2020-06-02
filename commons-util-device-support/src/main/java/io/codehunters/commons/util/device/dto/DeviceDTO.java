@@ -42,10 +42,9 @@ public class DeviceDTO extends DTO<Long> {
         return this;
     }
 
-    @SuppressWarnings("unsafe")
     public DeviceDTO addAdditionalInfo(String key, Object value) {
         if(this.additionalInfo == null) {
-            this.additionalInfo = new HashMap<>();
+            this.additionalInfo = new HashMap<String, Object>();
         }
 
         this.additionalInfo.put(key, value);
