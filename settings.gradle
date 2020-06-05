@@ -28,4 +28,5 @@ include 'commons-security-totp-support'
 include 'commons-util-barcode-support'
 include 'commons-remote-properties'
 include 'commons-web-swagger-support'
+include 'commons-template-mustache-helper'
 
