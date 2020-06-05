@@ -22,9 +22,6 @@ import javax.persistence.UniqueConstraint;
         })
 public class Parameter extends Entities<Long> {
 
-    @Column(name = "commons_param_application", nullable = false, length = 80)
-    private String application;
-
     @Column(name = "commons_param_group", nullable = false, length = 80)
     private String group;
 

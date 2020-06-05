@@ -87,17 +87,4 @@ public class BarcodeUtil {
         ImageIO.write(bufferedImage, barcodeProperties.getImageFormat().getFormat(), new File(barcodeProperties.getPathFile()));
     }
 
-    public static void main(String[] args) {
-        try {
-            readQRCodeImage();
-        } catch (FormatException e) {
-            e.printStackTrace();
-        } catch (ChecksumException e) {
-            e.printStackTrace();
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

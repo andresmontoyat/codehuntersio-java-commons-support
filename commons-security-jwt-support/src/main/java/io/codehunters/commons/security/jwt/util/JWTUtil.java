@@ -28,4 +28,8 @@ public class JWTUtil {
     public static Claims getBody(String signingKey, String token) {
         return Jwts.parser().setSigningKey(signingKey.getBytes()).parseClaimsJws(token).getBody();
     }
+
+    public static String getSignature(String signingKey, String token) {
+        return Jwts.parser().setSigningKey(signingKey.getBytes()).parseClaimsJws(token).getSignature();
+    }
 }

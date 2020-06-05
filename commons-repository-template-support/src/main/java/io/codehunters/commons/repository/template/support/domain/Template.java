@@ -22,9 +22,6 @@ import javax.persistence.UniqueConstraint;
         })
 public class Template extends Entities<Long> {
 
-    @Column(name = "commons_notif_templ_application", nullable = false, length = 80)
-    private String application;
-
     @Column(name = "commons_notif_templ_code", unique = true, nullable = false, length = 80)
     private String code;
 

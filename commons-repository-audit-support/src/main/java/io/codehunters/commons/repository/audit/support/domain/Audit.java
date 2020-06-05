@@ -19,7 +19,7 @@ import java.util.Map;
 @Table(name = "commons_audit_log")
 public class Audit extends Entities<Long> {
 
-    @Column(name = "commons_audit_event_type", nullable = false, length = 60)
+    @Column(name = "commons_audit_event_type", nullable = false, length = 80)
     private String eventType;
 
     @Column(name = "commons_audit_username", nullable = false, length = 80)
