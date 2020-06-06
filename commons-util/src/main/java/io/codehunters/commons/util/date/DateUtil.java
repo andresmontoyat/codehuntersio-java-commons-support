@@ -11,7 +11,17 @@ import java.util.Date;
 public class DateUtil {
 
     public static final String FORMAT = "yyyy-MM-dd";
+    public static final String FORMAT_HOUR = "yyyy-MM-dd HH:mm:ss";
+    public static final String FORMAT_JOB = "yyyy_MM_dd_HH_mm_ss";
     public static final String FORMAT_CODE = "yyyyMMddHHmm";
+    public static final String HOUR = "HH:mm:ss";
+    public static final String HOUR_START = "00:00:00";
+    public static final String HOUR_END = "23:59:59";
+
+    public static final String YEAR = "yyyy";
+    public static final String MONTH = "MM";
+    public static final String DAY = "dd";
+    public static final String DAYWEEK = "EEEE";
 
     public static DateFormat getDateFormat(String format) {
         return new SimpleDateFormat(format);
