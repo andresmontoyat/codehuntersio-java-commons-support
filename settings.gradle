@@ -30,4 +30,5 @@ include 'commons-web-pagination-support'
 include 'commons-web-swagger-support'
 include 'commons-remote-properties'
 include 'commons-template-mustache-support'
+include 'commons-util-hashids-support'
 

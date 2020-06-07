@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@SuppressWarnings("unchecked")
 public class DeviceDTO extends DTO<Long> {
 
     private DeviceMetadataStatus status;

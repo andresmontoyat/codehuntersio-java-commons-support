@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.hashids:hashids:1.0.3'
+}

@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "commons_parameters",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"commons_param_application", "commons_param_group", "commons_param_code"})
+                @UniqueConstraint(columnNames = {"commons_param_group", "commons_param_code"})
         })
 public class Parameter extends Entities<Long> {
 

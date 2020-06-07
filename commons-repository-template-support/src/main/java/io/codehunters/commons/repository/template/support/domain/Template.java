@@ -18,9 +18,12 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "commons_notif_templates",
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"commons_notif_templ_application", "commons_notif_templ_code"})
+                @UniqueConstraint(columnNames = {"commons_notif_templ_group", "commons_notif_templ_code"})
         })
 public class Template extends Entities<Long> {
+
+    @Column(name = "commons_notif_templ_group", nullable = false, length = 80)
+    private String group;
 
     @Column(name = "commons_notif_templ_code", unique = true, nullable = false, length = 80)
     private String code;
