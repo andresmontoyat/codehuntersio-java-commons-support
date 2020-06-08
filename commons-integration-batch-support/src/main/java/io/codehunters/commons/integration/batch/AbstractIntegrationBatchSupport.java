@@ -15,7 +15,7 @@ import java.io.File;
 
 public abstract class AbstractIntegrationBatchSupport {
 
-    public static final String DEFAULT_FILE_PATH = "file_path"
+    public static final String DEFAULT_FILE_PATH = "file_path";
 
     @Autowired
     protected JobLauncher jobLauncher;
