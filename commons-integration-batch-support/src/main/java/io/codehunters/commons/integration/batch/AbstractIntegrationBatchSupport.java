@@ -13,7 +13,7 @@ import org.springframework.integration.file.filters.SimplePatternFileListFilter;
 
 import java.io.File;
 
-public class AbstractIntegrationBatchSupport {
+public abstract class AbstractIntegrationBatchSupport {
 
     @Autowired
     protected JobLauncher jobLauncher;
