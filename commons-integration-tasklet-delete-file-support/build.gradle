@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.springframework.batch:spring-batch-integration'
+    implementation 'org.springframework.integration:spring-integration-file'
+    implementation 'biz.deinum.spring:spring-batch-excel:1.5.0-RELEASE'
+}

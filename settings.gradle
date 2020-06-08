@@ -31,4 +31,5 @@ include 'commons-web-swagger-support'
 include 'commons-remote-properties'
 include 'commons-template-mustache-support'
 include 'commons-util-hashids-support'
+include 'commons-integration-tasklet-delete-file-support'
 
