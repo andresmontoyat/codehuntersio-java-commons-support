@@ -2,6 +2,7 @@ export default [
   'io.codehunters.commons.commons-util',
   'io.codehunters.commons.commons-util-ip-support',
   'io.codehunters.commons.commons-util-device-support',
+  'io.codehunters.commons.commons-util-barcode-support',
   'io.codehunters.commons.commons-enums',
   'io.codehunters.commons.commons-properties',
   'io.codehunters.commons.commons-repository',
@@ -21,9 +22,11 @@ export default [
   'io.codehunters.commons.commons-security',
   'io.codehunters.commons.commons-security-jwt-support',
   'io.codehunters.commons.commons-security-cors-support',
+  'io.codehunters.commons.commons-security-totp-support',
   'io.codehunters.commons.commons-web',
   'io.codehunters.commons.commons-web-pagination-support',
-  'io.codehunters.commons.commons-security-totp-support',
-  'io.codehunters.commons.commons-util-barcode-support',
-  'io.codehunters.commons.commons-remote-properties'
+  'io.codehunters.commons.commons-web-swagger-support',
+  'io.codehunters.commons.commons-remote-properties',
+  'io.codehunters.commons.commons-template-mustache-support',
+  'io.codehunters.commons.commons-util-hashids-support'
 ]
