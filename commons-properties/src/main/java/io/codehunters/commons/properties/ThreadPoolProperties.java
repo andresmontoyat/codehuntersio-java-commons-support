@@ -7,6 +7,8 @@ import lombok.Setter;
 @Setter
 public class ThreadPoolProperties {
 
+    private String threadName;
+
     private int corePoolSize;
 
     private int maxPoolSize;
