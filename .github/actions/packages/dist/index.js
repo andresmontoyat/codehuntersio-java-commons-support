@@ -18233,7 +18233,7 @@ exports.default = [
     'io.codehunters.commons.commons-template-mustache-support',
     'io.codehunters.commons.commons-util-hashids-support',
     'io.codehunters.commons.commons-integration-batch-support',
-    'io.codehunters.commons.commons-integration-tasklet-delete-file-support'
+    'io.codehunters.commons.commons-integration-tasklets-support'
 ];
 
 
