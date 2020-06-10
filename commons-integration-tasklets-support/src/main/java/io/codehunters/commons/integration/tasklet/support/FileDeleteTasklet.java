@@ -10,11 +10,11 @@ import org.springframework.batch.repeat.RepeatStatus;
 import java.io.File;
 
 @Slf4j
-public class FileDeletingTasklet implements Tasklet {
+public class FileDeleteTasklet implements Tasklet {
 
     private String filePath;
 
-    public FileDeletingTasklet(String filePath) {
+    public FileDeleteTasklet(String filePath) {
         this.filePath = filePath;
     }
 
