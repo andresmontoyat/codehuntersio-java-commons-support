@@ -25,6 +25,7 @@ export default [
   'io.codehunters.commons.commons-security-cors-support',
   'io.codehunters.commons.commons-security-totp-support',
   'io.codehunters.commons.commons-security-audit-support',
+  'io.codehunters.commons.commons-security-util-support',
   'io.codehunters.commons.commons-web',
   'io.codehunters.commons.commons-web-pagination-support',
   'io.codehunters.commons.commons-web-swagger-support',
