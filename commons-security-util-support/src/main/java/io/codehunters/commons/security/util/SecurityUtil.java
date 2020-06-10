@@ -20,6 +20,14 @@ public class SecurityUtil {
 
     private HashId hashId;
 
+    public String passwordEncode(String password) {
+        return passwordEncoder.encode(password);
+    }
+
+    public boolean passwordMatches(String password, String hash) {
+        return passwordEncoder.matches(password, hash);
+    }
+    
     public String getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {
