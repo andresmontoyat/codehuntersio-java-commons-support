@@ -9,6 +9,7 @@ dependencies {
 
     implementation project(':commons-security')
     implementation project(':commons-security-jwt-support')
+    implementation project(':commons-security-totp-support')
     implementation project(':commons-util')
     implementation project(':commons-util-hashids-support')
 }

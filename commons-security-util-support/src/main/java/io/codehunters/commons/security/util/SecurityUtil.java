@@ -2,6 +2,7 @@ package io.codehunters.commons.security.util;
 
 import io.codehunters.commons.security.SecurityException;
 import io.codehunters.commons.security.jwt.provider.JWTProvider;
+import io.codehunters.commons.security.totp.TOTP;
 import io.codehunters.commons.util.hashids.HashId;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,8 @@ public class SecurityUtil {
 
     private HashId hashId;
 
+    private TOTP totp;
+
     public String passwordEncode(String password) {
         return passwordEncoder.encode(password);
     }
@@ -27,7 +30,7 @@ public class SecurityUtil {
     public boolean passwordMatches(String password, String hash) {
         return passwordEncoder.matches(password, hash);
     }
-    
+
     public String getUsername() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {

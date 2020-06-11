@@ -142,12 +142,12 @@ public class TOTP {
      * @param otp
      * @return true or false validation
      */
-    public boolean verify(String secret, String otp) {
+    public boolean verify(String secret, String otp, Digits digits) {
         long currentInterval = clock.getCurrentInterval();
         int pastResponse = Math.max(1, 0);
 
         for (int i = pastResponse; i >= 0; --i) {
-            String candidate = generate(secret, Digits.SIX, currentInterval - i);
+            String candidate = generate(secret, digits, currentInterval - i);
             if (candidate.equals(otp)) {
                 return true;
             }
