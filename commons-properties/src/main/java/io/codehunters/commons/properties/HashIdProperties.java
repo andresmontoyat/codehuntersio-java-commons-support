@@ -9,5 +9,5 @@ public class HashIdProperties {
 
     private String salt;
 
-    private Long minHashLength;
+    private int minLength;
 }
