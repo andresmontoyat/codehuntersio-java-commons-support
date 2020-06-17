@@ -30,7 +30,8 @@ public class FileMoveTasklet implements Tasklet {
         log.info("MOVE FILE");
         File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter));
         if (file.isFile()) {
-            Files.move(Paths.get(file.toURI()), Paths.get(URI.create("file:" + newFilePath + file.getName())), StandardCopyOption.REPLACE_EXISTING);
+
+            Files.move(Paths.get(file.toURI()), Paths.get(URI.create("file:" + newFilePath + "/" + file.getName())), StandardCopyOption.REPLACE_EXISTING);
         }
 
         return RepeatStatus.FINISHED;
