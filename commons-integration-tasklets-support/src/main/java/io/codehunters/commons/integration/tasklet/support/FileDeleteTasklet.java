@@ -12,17 +12,17 @@ import java.io.File;
 @Slf4j
 public class FileDeleteTasklet implements Tasklet {
 
-    private String filePath;
+    private String filePathParameter;
 
-    public FileDeleteTasklet(String filePath) {
-        this.filePath = filePath;
+    public FileDeleteTasklet(String filePathParameter) {
+        this.filePathParameter = filePathParameter;
     }
 
     @Override
     public RepeatStatus execute(StepContribution contribution,
                                 ChunkContext chunkContext) throws Exception {
         log.info("DELETE FILE");
-        File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePath));
+        File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter));
         if (file.isFile()) {
             boolean deleted = file.delete();
             if (!deleted) {

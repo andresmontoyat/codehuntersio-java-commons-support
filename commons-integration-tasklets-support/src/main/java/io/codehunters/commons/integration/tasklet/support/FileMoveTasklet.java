@@ -15,12 +15,12 @@ import java.nio.file.StandardCopyOption;
 @Slf4j
 public class FileMoveTasklet implements Tasklet {
 
-    private String filePath;
+    private String filePathParameter;
 
     private String newFilePath;
 
-    public FileMoveTasklet(String filePath, String newFilePath) {
-        this.filePath = filePath;
+    public FileMoveTasklet(String filePathParameter, String newFilePath) {
+        this.filePathParameter = filePathParameter;
         this.newFilePath = newFilePath;
     }
 
@@ -28,7 +28,7 @@ public class FileMoveTasklet implements Tasklet {
     public RepeatStatus execute(StepContribution contribution,
                                 ChunkContext chunkContext) throws Exception {
         log.info("MOVE FILE");
-        File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePath));
+        File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter));
         if (file.isFile()) {
             Files.move(Paths.get(file.toURI()), Paths.get(URI.create(newFilePath + file.getName())), StandardCopyOption.REPLACE_EXISTING);
         }
