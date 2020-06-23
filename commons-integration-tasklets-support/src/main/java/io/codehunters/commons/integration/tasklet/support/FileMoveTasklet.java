@@ -7,6 +7,7 @@ import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,10 +34,10 @@ public class FileMoveTasklet implements Tasklet {
             if(!file.getParentFile().isDirectory())
                 file.getParentFile().mkdir();
 
-            Files.move(Paths.get(file.toURI()), Paths.get(URI.create("file:" + newFilePath + "/" + file.getName())), StandardCopyOption.REPLACE_EXISTING);
+            Files.move(Paths.get(file.toURI()), Paths.get(URI.create("file://" + (newFilePath + "/" + file.getName()).replaceAll("\\s", "%20") )), StandardCopyOption.REPLACE_EXISTING);
         }
 
         return RepeatStatus.FINISHED;
     }
-
+    
 }
