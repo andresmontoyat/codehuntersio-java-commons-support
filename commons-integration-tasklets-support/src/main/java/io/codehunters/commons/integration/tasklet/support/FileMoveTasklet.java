@@ -39,5 +39,5 @@ public class FileMoveTasklet implements Tasklet {
 
         return RepeatStatus.FINISHED;
     }
-    
+
 }

@@ -37,10 +37,15 @@ public abstract class AbstractIntegrationBatchSupport {
     }
 
     protected MessageSource<File> fileReadingMessageSource(String directory, String filter, FileReadingMessageSource.WatchEventType...events) {
+        return fileReadingMessageSource(directory, filter, Boolean.TRUE, Boolean.TRUE, events);
+    }
+
+    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, Boolean useWatchService, Boolean autoCreateDirectory, FileReadingMessageSource.WatchEventType...events) {
         FileReadingMessageSource source = new FileReadingMessageSource();
         source.setDirectory(new File(directory));
         source.setFilter(new SimplePatternFileListFilter(filter));
-        source.setUseWatchService(true);
+        source.setUseWatchService(useWatchService);
+        source.setAutoCreateDirectory(autoCreateDirectory);
         source.setWatchEvents(events);
         return source;
     }
