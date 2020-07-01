@@ -18221,6 +18221,7 @@ exports.default = [
     'io.codehunters.commons.commons-dto',
     'io.codehunters.commons.commons-dto-jpa-support',
     'io.codehunters.commons.commons-dto-pagination-support',
+    'io.codehunters.commons.commons-dto-notification-support',
     'io.codehunters.commons.commons-service',
     'io.codehunters.commons.commons-service-pagination-support',
     'io.codehunters.commons.commons-security',

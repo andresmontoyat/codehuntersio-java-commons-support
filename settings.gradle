@@ -19,6 +19,7 @@ include 'commons-repository-menu-ui-support'
 include 'commons-dto'
 include 'commons-dto-jpa-support'
 include 'commons-dto-pagination-support'
+include 'commons-dto-notification-support'
 include 'commons-service'
 include 'commons-service-pagination-support'
 include 'commons-security'
@@ -33,5 +34,3 @@ include 'commons-remote-properties'
 include 'commons-template-mustache-support'
 include 'commons-integration-batch-support'
 include 'commons-integration-tasklets-support'
-
-
