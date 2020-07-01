@@ -32,5 +32,6 @@ export default [
   'io.codehunters.commons.commons-remote-properties',
   'io.codehunters.commons.commons-template-mustache-support',
   'io.codehunters.commons.commons-integration-batch-support',
-  'io.codehunters.commons.commons-integration-tasklets-support'
+  'io.codehunters.commons.commons-integration-tasklets-support',
+  'io.codehunters.commons.commons-jasperreport-support'
 ]

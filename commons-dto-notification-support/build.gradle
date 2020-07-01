@@ -2,13 +2,4 @@ plugins {
     id 'java'
 }
 
-group 'io.codehunters.commons'
-version '1.0.32-RELEASE'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
+jar.enabled = true

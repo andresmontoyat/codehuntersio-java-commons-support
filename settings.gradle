@@ -34,3 +34,5 @@ include 'commons-remote-properties'
 include 'commons-template-mustache-support'
 include 'commons-integration-batch-support'
 include 'commons-integration-tasklets-support'
+include 'commons-jasperreport-support'
+
