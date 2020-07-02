@@ -12,9 +12,9 @@ import java.util.Map;
 @Setter
 public class NotificationDTO {
 
-    private String templateCode;
-
     private String source;
+
+    private String template;
 
     private Map<DestinationType, List<String>> destinations;
 
