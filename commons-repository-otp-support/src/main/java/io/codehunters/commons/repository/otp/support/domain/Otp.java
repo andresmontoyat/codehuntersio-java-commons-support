@@ -1,10 +1,10 @@
 package io.codehunters.commons.repository.otp.support.domain;
 
-import io.codehunters.commons.enums.otp.support.OtpServiceType;
-import io.codehunters.commons.enums.otp.support.OtpStatus;
-import io.codehunters.commons.repository.domain.support.Entities;
-import io.codehunters.commons.repository.domain.support.converter.MapStringKeyWithObjectValueConverter;
-import io.codehunters.commons.repository.otp.support.domain.support.converter.OtpServiceTypeConverter;
+import io.codehunters.commons.repository.converter.MapStringKeyWithObjectValueConverter;
+import io.codehunters.commons.repository.domain.support.JpaEntities;
+import io.codehunters.commons.repository.otp.support.domain.converter.ServiceTypeConverter;
+import io.codehunters.commons.repository.otp.support.domain.enums.OTPServiceType;
+import io.codehunters.commons.repository.otp.support.domain.enums.OTPStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ import java.util.Map;
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"commons_otp_code", "commons_otp_username", "commons_otp_sent_date"})
         })
-public class Otp extends Entities<Long> {
+public class OTP extends JpaEntities<Long> {
 
     @Column(name = "commons_otp_code", nullable = false, length = 8)
     private String otp;
@@ -45,18 +45,14 @@ public class Otp extends Entities<Long> {
     private Date invalidatedDate;
 
     @Column(name = "commons_otp_status", nullable = false, length = 20)
-    private OtpStatus otpStatus;
+    private OTPStatus status;
 
-    @Convert(converter = OtpServiceTypeConverter.class)
+    @Convert(converter = ServiceTypeConverter.class)
     @Column(name = "commons_otp_service_type", nullable = false, length = 80)
-    private List<OtpServiceType> otpServiceType;
+    private List<OTPServiceType> serviceTypes;
 
     @Column(name = "commons_otp_failed_attempts", nullable = false)
     private Integer failedAttempts;
-
-    @Column(name = "commons_otp_additional_info", length = 400)
-    @Convert(converter = MapStringKeyWithObjectValueConverter.class)
-    private Map<String, Object> additionalInfo;
 
     @Column(name = "commons_otp_parameter_1", length = 200)
     private String parameter1;
@@ -66,4 +62,8 @@ public class Otp extends Entities<Long> {
 
     @Column(name = "commons_otp_parameter_3", length = 200)
     private String parameter3;
+
+    @Column(name = "commons_otp_additional_info", length = 800)
+    @Convert(converter = MapStringKeyWithObjectValueConverter.class)
+    private Map<String, Object> additionalInfo;
 }
