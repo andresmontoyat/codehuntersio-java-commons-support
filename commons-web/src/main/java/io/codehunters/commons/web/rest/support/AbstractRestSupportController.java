@@ -6,6 +6,7 @@ import java.net.URI;
 import java.util.Map;
 
 public interface AbstractRestSupportController {
+
     default URI createURI(String path, Long id) {
         return ServletUriComponentsBuilder
                 .fromCurrentRequest()

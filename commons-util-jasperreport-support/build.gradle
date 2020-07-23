@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation('net.sf.jasperreports:jasperreports:6.13.0') {
+        exclude group: 'com.lowagie', module: 'itext'
+    }
+    implementation 'com.lowagie:itext:2.1.7'
+}

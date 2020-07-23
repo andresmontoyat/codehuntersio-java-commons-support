@@ -8,7 +8,7 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class RestException extends ErrorException {
 
-    public static final String DEFAULT_ERROR_CODE = "R-ERR";
+    public static final String DEFAULT_ERROR_CODE = "API-ERR";
 
     private HttpStatus status;
 

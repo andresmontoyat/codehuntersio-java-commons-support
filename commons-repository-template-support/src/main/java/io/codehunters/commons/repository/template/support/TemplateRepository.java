@@ -12,18 +12,16 @@ import java.util.Optional;
 @Repository
 public interface TemplateRepository extends PagingAndSortingRepository<Template, Long> {
 
-    @Query("SELECT t FROM Template t WHERE t.group = :group")
-    Optional<List<Template>> findAllByGroupEquals(@Param("group") String group);
+    @Query("SELECT t FROM Template t WHERE t.code = :code")
+    Optional<List<Template>> findByCodeEquals(@Param("code") String code);
 
-    @Query("SELECT t FROM Template t WHERE t.group = :group AND t.code = :code")
-    Optional<Template> findByGroupEqualsAndCodeEquals(@Param("group") String group, @Param("code") String code);
+    @Query("SELECT t FROM Template t WHERE t.parameter1 = :parameter1")
+    Optional<List<Template>> findAllByParameter1Equals(@Param("parameter1") String parameter1);
 
-    @Query("SELECT t FROM Template t WHERE t.group = :group AND t.code = :code AND t.parameter1 = :parameter1")
-    Optional<Template> findByGroupEqualsAndCodeEqualsAndParameter1Equals(@Param("group") String group, @Param("code") String code, @Param("parameter1") Long parameter1);
+    @Query("SELECT t FROM Template t WHERE t.parameter1 = :parameter1 AND t.parameter2 = :parameter2")
+    Optional<List<Template>> findAllByParameter1EqualsAndParameter2Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2);
 
-    @Query("SELECT t FROM Template t WHERE t.group = :group AND t.code = :code AND t.parameter1 = :parameter1 AND t.parameter2 = :parameter2")
-    Optional<Template> findByGroupEqualsAndCodeEqualsAndParameter1EqualsAndParameter2Equals(@Param("group") String group, @Param("code") String code, @Param("parameter1") Long parameter1, @Param("parameter2") Long parameter2);
-
-    @Query("SELECT t FROM Template t WHERE t.group = :group AND t.code = :code AND t.parameter1 = :parameter1 AND t.parameter2 = :parameter2 AND t.parameter3 = :parameter3")
-    Optional<Template> findByGroupEqualsAndCodeEqualsAndParameter1EqualsAndParameter2EqualsAndParameter3Equals(@Param("group") String group, @Param("code") String code, @Param("parameter1") Long parameter1, @Param("parameter2") Long parameter2, @Param("parameter3") Long parameter3);
+    @Query("SELECT t FROM Template t WHERE t.parameter1 = :parameter1 AND t.parameter2 = :parameter2 AND t.parameter3 = :parameter3")
+    Optional<List<Template>> findAllByParameter1EqualsAndParameter2EqualsAndParameter3Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2, @Param("parameter3") String parameter3);
+    
 }

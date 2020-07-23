@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation project(':commons-util')
+    implementation project(':commons-dto-jpa-pagination-mapper-support')
+}

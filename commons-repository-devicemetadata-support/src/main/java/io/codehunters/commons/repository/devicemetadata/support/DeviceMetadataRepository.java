@@ -24,12 +24,16 @@ public interface DeviceMetadataRepository extends PagingAndSortingRepository<Dev
     @Query("SELECT d FROM DeviceMetadata d WHERE d.username = :username AND d.ip = :ip AND UPPER(d.location) = UPPER(:location)")
     Optional<List<DeviceMetadata>> findAllByUsernameEqualsAndIpEqualsAndLocation(@Param("username") Long userId, @Param("ip") String ip, @Param("location") String location);
 
-    @Query("SELECT d FROM DeviceMetadata d WHERE d.username = :username AND d.ip = :ip AND UPPER(d.location) = UPPER(:location) AND d.userAgent = :userAgent")
-    Optional<List<DeviceMetadata>> findAllByUsernameEqualsAndIpEqualsAndLocationAndUserAgentEquals(@Param("username") String username, @Param("ip") String ip, @Param("location") String location, @Param("userAgent") String userAgent);
-
     @Query("SELECT d FROM DeviceMetadata d WHERE d.username = :username AND UPPER(d.location) = UPPER(:location)")
     Optional<List<DeviceMetadata>> findAllByUsernameEqualsAndLocation(@Param("username") String username, @Param("location") String location);
 
-    @Query("SELECT d FROM DeviceMetadata d WHERE d.username = :username AND UPPER(d.location) = UPPER(:location) AND d.userAgent = :userAgent")
-    Optional<List<DeviceMetadata>> findAllByUsernameEqualsAndLocationAndUserAgentEquals(@Param("username") String username, @Param("location") String location, @Param("userAgent") String userAgent);
+    @Query("SELECT d FROM DeviceMetadata d WHERE d.parameter1 = :parameter1")
+    Optional<List<DeviceMetadata>> findAllByParameter1Equals(@Param("parameter1") String parameter1);
+
+    @Query("SELECT d FROM DeviceMetadata d WHERE d.parameter1 = :parameter1 AND d.parameter2 = :parameter2")
+    Optional<List<DeviceMetadata>> findAllByParameter1EqualsAndParameter2Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2);
+
+    @Query("SELECT d FROM DeviceMetadata d WHERE d.parameter1 = :parameter1 AND d.parameter2 = :parameter2 AND d.parameter3 = :parameter3")
+    Optional<List<DeviceMetadata>> findAllByParameter1EqualsAndParameter2EqualsAndParameter3Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2, @Param("parameter3") String parameter3);
+
 }

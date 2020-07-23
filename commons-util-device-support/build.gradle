@@ -10,7 +10,5 @@ dependencies {
     implementation 'com.github.ua-parser:uap-java:1.4.0'
 
     implementation project(':commons-util')
-    implementation project(':commons-enums')
-    implementation project(':commons-dto')
     implementation project(':commons-util-ip-support')
 }

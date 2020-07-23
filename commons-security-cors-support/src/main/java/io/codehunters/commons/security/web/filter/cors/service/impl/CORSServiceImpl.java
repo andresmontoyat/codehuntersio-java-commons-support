@@ -1,7 +1,7 @@
 package io.codehunters.commons.security.web.filter.cors.service.impl;
 
 import io.codehunters.commons.repository.cors.support.CORSRepositiry;
-import io.codehunters.commons.repository.cors.support.domain.Cors;
+import io.codehunters.commons.repository.cors.support.domain.CORS;
 import io.codehunters.commons.security.web.filter.cors.service.CORSService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class CORSServiceImpl implements CORSService {
 
     @Override
     public List<String> fetchAll() {
-        Optional<List<Cors>> result = corsRepositiry.findAllByEnabledEquals(Boolean.TRUE);
+        Optional<List<CORS>> result = corsRepositiry.findAllByEnabledEquals(Boolean.TRUE);
         if(result.isPresent()) {
             return result.get()
                     .stream()

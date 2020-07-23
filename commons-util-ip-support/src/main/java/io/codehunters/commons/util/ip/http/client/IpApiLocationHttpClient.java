@@ -11,11 +11,7 @@ import java.net.URI;
 @Slf4j
 public class IpApiLocationHttpClient {
 
-    public static String IP_API_URL = "http://ip-api.com/json/%s?fields=mobile,reverse";
-    public static String IP_API_STATUS_SUCCESS = "success";
-    public static String IP_API_STATUS_FAIL = "fail";
-
-    public static final String LOCATION_UNKNOWN = "UNKNOWN";
+    public static String IP_API_URL = "http://ip-api.com/json/%s?fields=mobile,reverse,continent,proxy";
 
     public static IpLocation call(String ip) {
         RestTemplate restTemplate = new RestTemplate();
@@ -23,7 +19,7 @@ public class IpApiLocationHttpClient {
             ResponseEntity<IpLocation> response = restTemplate.getForEntity(URI.create(String.format(IP_API_URL, ip)), IpLocation.class);
             if (HttpStatus.OK.equals(response.getStatusCode())) {
                 IpLocation ipLocation = response.getBody();
-                if (IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
+                if (IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
                     return ipLocation;
                 }
 
@@ -33,6 +29,9 @@ public class IpApiLocationHttpClient {
             log.error("An error has occurred trying to search the ip location in http://ip-api.com/.", e);
         }
 
-        return null;
+        IpLocation defaultIpLocation = new IpLocation();
+        defaultIpLocation.setIp(ip);
+        defaultIpLocation.setStatus(IpLocation.IP_API_STATUS_FAILURE);
+        return defaultIpLocation;
     }
 }

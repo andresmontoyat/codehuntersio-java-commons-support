@@ -1,6 +1,6 @@
 package io.codehunters.commons.repository.country.support.domain;
 
-import io.codehunters.commons.repository.domain.support.Geolocation;
+import io.codehunters.commons.repository.domain.support.JpaGeolocation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,12 +16,11 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_countries")
-public class Country extends Geolocation<Long> {
+public class Country extends JpaGeolocation<Long> {
 
     @Column(name = "commons_country_name", nullable = false, length = 120)
     private String name;
 
     @Column(name = "commons_country_indicative", nullable = false, length = 8)
     private String indicative;
-
 }

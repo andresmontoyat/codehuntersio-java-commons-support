@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class AuditableDTO implements Serializable {
+public abstract class AuditableDTO implements Serializable {
 
     protected String createdBy;
 
@@ -17,4 +17,6 @@ public class AuditableDTO implements Serializable {
     protected String modifiedBy;
 
     protected Date lastModifiedDate;
+
+    protected Long version;
 }

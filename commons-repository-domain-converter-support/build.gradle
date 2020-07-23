@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'javax.persistence:javax.persistence-api'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    implementation project(':commons-util')
+}

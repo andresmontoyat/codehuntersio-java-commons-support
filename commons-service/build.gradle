@@ -5,7 +5,5 @@ plugins {
 jar.enabled = true
 
 dependencies {
-    implementation project(':commons-util')
-    implementation project(':commons-dto')
-    implementation project(':commons-dto-pagination-support')
+    implementation project(':commons-util-error-ex-support')
 }

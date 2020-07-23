@@ -2,6 +2,8 @@ package io.codehunters.commons.security.web.filter.cors;
 
 import io.codehunters.commons.properties.CORSProperties;
 import io.codehunters.commons.security.web.filter.cors.service.CORSService;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Getter
+@Setter
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CORSFilter extends GenericFilterBean {
 
@@ -34,14 +38,13 @@ public class CORSFilter extends GenericFilterBean {
 
     private CORSService corsService;
 
-    public CORSFilter(CORSProperties corsProperties, CORSService corsService) {
+    public CORSFilter(CORSProperties corsProperties) {
         this.corsProperties = corsProperties;
-        this.corsService = corsService;
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        final HttpServletResponse response = (HttpServletResponse) res;
+        HttpServletResponse response = (HttpServletResponse) res;
         response.setHeader(ACCESS_CONTROL_ALLOW_ORIGIN, origins());
         response.setHeader(ACCESS_CONTROL_ALLOW_METHODS, corsProperties.getMethods());
         response.setHeader(ACCESS_CONTROL_ALLOW_HEADERS, corsProperties.getHeaders());
@@ -64,14 +67,18 @@ public class CORSFilter extends GenericFilterBean {
             return corsProperties.getOrigins();
         }
 
-        List<String> origins = corsService.fetchAll();
-        if (origins == null) {
-            origins = new ArrayList<>();
+        if(corsService != null) {
+            List<String> origins = corsService.fetchAll();
+            if (origins == null) {
+                origins = new ArrayList<>();
+            }
+
+            origins.add(corsProperties.getOrigins());
+            return origins.stream()
+                    .collect(Collectors.joining(","));
         }
 
-        origins.add(corsProperties.getOrigins());
-        return origins.stream()
-                .collect(Collectors.joining(","));
+        return corsProperties.getOrigins();
     }
 
 }

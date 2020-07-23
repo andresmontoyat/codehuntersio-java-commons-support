@@ -13,4 +13,8 @@ public class BCryptUtils {
         String salt = BCrypt.gensalt();
         return BCrypt.hashpw(plaintext, salt);
     }
+
+    public static boolean check(String password, String hash) {
+        return BCrypt.checkpw(password, hash);
+    }
 }

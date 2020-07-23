@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation 'javax.validation:validation-api'
+    implementation 'javax.persistence:javax.persistence-api'
+
+    implementation project(':commons-util-error-ex-support')
+    implementation project(':commons-dto')
+    implementation project(':commons-repository')
+}

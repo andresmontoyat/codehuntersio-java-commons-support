@@ -1,8 +1,8 @@
 package io.codehunters.commons.repository.devicemetadata.support.domain;
 
-import io.codehunters.commons.enums.device.support.DeviceMetadataStatus;
-import io.codehunters.commons.repository.domain.support.Geolocation;
-import io.codehunters.commons.repository.domain.support.converter.MapStringKeyWithObjectValueConverter;
+import io.codehunters.commons.repository.converter.MapStringKeyWithObjectValueConverter;
+import io.codehunters.commons.repository.devicemetadata.support.domain.enums.DeviceStatus;
+import io.codehunters.commons.repository.domain.support.JpaGeolocation;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,21 +17,17 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_devices_metadata")
-public class DeviceMetadata extends Geolocation<Long> {
+public class DeviceMetadata extends JpaGeolocation<Long> {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "commons_device_status", nullable = false, length = 20)
-    private DeviceMetadataStatus status;
+    private DeviceStatus status;
 
     @Column(name = "commons_device_username", nullable = false, length = 80)
     private String username;
 
     @Column(name = "commons_device_serial_id", length = 200)
-    private Long serialId;
-
-    @Column(name = "commons_device_details", length = 400)
-    @Convert(converter = MapStringKeyWithObjectValueConverter.class)
-    private Map<String, Object> additionalInfo;
+    private String serialId;
 
     @Column(name = "commons_device_location", length = 200)
     private String location;
@@ -51,4 +47,7 @@ public class DeviceMetadata extends Geolocation<Long> {
     @Column(name = "commons_device_parameter_3", length = 200)
     private String parameter3;
 
+    @Column(name = "commons_device_additional_info", length = 800)
+    @Convert(converter = MapStringKeyWithObjectValueConverter.class)
+    private Map<String, Object> additionalInfo;
 }

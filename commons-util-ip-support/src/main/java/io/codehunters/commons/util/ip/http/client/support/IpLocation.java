@@ -11,6 +11,10 @@ import lombok.Setter;
 @Setter
 public class IpLocation {
 
+    public static String IP_API_STATUS_SUCCESS = "success";
+    public static String IP_API_STATUS_FAILURE = "fail";
+    public static final String LOCATION_UNKNOWN = "UNKNOWN";
+
     @JsonProperty("query")
     private String ip;
 
@@ -67,5 +71,8 @@ public class IpLocation {
 
     @JsonProperty("lon")
     private Double longitude;
+
+    @JsonProperty("proxy")
+    private Boolean proxy;
 
 }
