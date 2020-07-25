@@ -1,4 +1,4 @@
-package io.codehunters.commons.util.jasperreport.support;
+package io.codehunters.commons.util.jasperreport;
 
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.JRPdfExporter;

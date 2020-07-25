@@ -3,8 +3,6 @@ plugins {
 }
 
 dependencies {
-    implementation 'org.springframework:spring-web'
-    implementation 'org.springframework:spring-webmvc'
     implementation 'javax.servlet:javax.servlet-api'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     implementation 'com.github.ua-parser:uap-java:1.4.0'

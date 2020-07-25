@@ -1,4 +1,4 @@
-package io.codehunters.commons.template.mustache.support;
+package io.codehunters.commons.util.mustache;
 
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheException;

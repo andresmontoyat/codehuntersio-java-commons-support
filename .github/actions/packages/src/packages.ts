@@ -29,7 +29,7 @@ export default [
   'io.codehunters.commons.commons-security-totp-support',
   'io.codehunters.commons.commons-security-audit-support',
   'io.codehunters.commons.commons-web',
-  'io.codehunters.commons.commons-web-jpa-pagination-support',
+  'io.codehunters.commons.commons-web-pagination-support',
   'io.codehunters.commons.commons-integration-batch-support',
   'io.codehunters.commons.commons-integration-tasklets-support'
 ]
