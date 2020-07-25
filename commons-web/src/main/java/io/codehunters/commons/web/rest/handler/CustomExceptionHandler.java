@@ -1,6 +1,6 @@
 package io.codehunters.commons.web.rest.handler;
 
-import io.codehunters.commons.service.ServiceException;
+import io.codehunters.commons.ex.ServiceException;
 import io.codehunters.commons.web.rest.handler.message.ApiError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

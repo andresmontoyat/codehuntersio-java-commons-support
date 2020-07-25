@@ -18202,12 +18202,12 @@ var BufferToggleSubscriber = (function (_super) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = [
+    'io.codehunters.commons.commons-exception-support',
     'io.codehunters.commons.commons-util',
     'io.codehunters.commons.commons-util-ip-support',
     'io.codehunters.commons.commons-util-device-support',
     'io.codehunters.commons.commons-util-barcode-support',
     'io.codehunters.commons.commons-util-hashids-support',
-    'io.codehunters.commons.commons-util-error-ex-support',
     'io.codehunters.commons.commons-util-jasperreport-support',
     'io.codehunters.commons.commons-util-template-mustache-support',
     'io.codehunters.commons.commons-properties',
@@ -18225,9 +18225,7 @@ exports.default = [
     'io.codehunters.commons.commons-repository-notification-support',
     'io.codehunters.commons.commons-dto',
     'io.codehunters.commons.commons-dto-jpa-mapper-support',
-    'io.codehunters.commons.commons-dto-pagination-mapper-support',
     'io.codehunters.commons.commons-service',
-    'io.codehunters.commons.commons-service-jpa-pagination-support',
     'io.codehunters.commons.commons-security',
     'io.codehunters.commons.commons-security-jwt-support',
     'io.codehunters.commons.commons-security-cors-support',

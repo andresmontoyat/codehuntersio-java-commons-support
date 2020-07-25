@@ -11,6 +11,5 @@ dependencies {
     implementation 'io.springfox:springfox-swagger2:2.9.2'
 
     implementation project(':commons-util')
-    implementation project(':commons-util-error-ex-support')
-    implementation project(':commons-service')
+    implementation project(':commons-exception-support')
 }

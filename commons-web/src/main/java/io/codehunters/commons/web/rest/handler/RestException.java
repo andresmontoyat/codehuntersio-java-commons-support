@@ -1,10 +1,14 @@
 package io.codehunters.commons.web.rest.handler;
 
-import io.codehunters.commons.util.ex.ErrorException;
+import io.codehunters.commons.ex.ErrorException;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
+@Getter
+@Setter
 @SuppressWarnings("serial")
 public class RestException extends ErrorException {
 
@@ -44,20 +48,4 @@ public class RestException extends ErrorException {
         this.errors = errors;
     }
 
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public RestException setStatus(HttpStatus status) {
-        this.status = status;
-        return this;
-    }
-
-    public List getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List errors) {
-        this.errors = errors;
-    }
 }

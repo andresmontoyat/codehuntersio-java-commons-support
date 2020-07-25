@@ -1,7 +1,7 @@
 package io.codehunters.commons.repository.menuui.domain;
 
 import io.codehunters.commons.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.repository.domain.support.JpaEntities;
+import io.codehunters.commons.repository.domain.JpaEntities;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

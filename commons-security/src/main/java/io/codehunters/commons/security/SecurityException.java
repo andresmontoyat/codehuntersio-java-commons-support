@@ -1,6 +1,6 @@
 package io.codehunters.commons.security;
 
-import io.codehunters.commons.util.ex.ErrorException;
+import io.codehunters.commons.ex.ErrorException;
 
 @SuppressWarnings("serial")
 public class SecurityException extends ErrorException {

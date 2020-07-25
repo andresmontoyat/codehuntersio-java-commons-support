@@ -1,6 +1,6 @@
 package io.codehunters.commons.security.web.authentication;
 
-import io.codehunters.commons.util.ex.ErrorException;
+import io.codehunters.commons.ex.ErrorException;
 
 public class DefaultAuthenticationHandlerException extends ErrorException {
 

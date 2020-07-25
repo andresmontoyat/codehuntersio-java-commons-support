@@ -1,7 +1,7 @@
 package io.codehunters.commons.security.web.filter.cors.service.impl;
 
-import io.codehunters.commons.repository.cors.support.CORSRepositiry;
-import io.codehunters.commons.repository.cors.support.domain.CORS;
+import io.codehunters.commons.repository.cors.CORSRepositiry;
+import io.codehunters.commons.repository.cors.domain.CORS;
 import io.codehunters.commons.security.web.filter.cors.service.CORSService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
