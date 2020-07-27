@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Slf4j
-public class DeviceInfoUtil {
+public class DeviceUtil {
 
     public static final String HEADER_USER_AGENT = "User-Agent";
 
