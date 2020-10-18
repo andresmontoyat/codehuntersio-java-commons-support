@@ -14,6 +14,8 @@ include ':commons:commons-repository'
 include ':commons:commons-jpa-mapper-support'
 include ':commons:commons-jpa-converter-support'
 include ':commons:commons-web'
+include ':commons:commons-integration-batch-support'
+include ':commons:commons-integration-tasklets-support'
 
 include ':repository:jpa-repository-audit-support'
 include ':repository:jpa-repository-cors-support'
