@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 @SuppressWarnings("unchecked")
-public interface PageDTOMapper<D, E> extends DTOMapper<D, E> {
+public interface PageDTOMapper<D, E> extends DTOMapper<D, E>   {
 
     default PageRequest toPageRequest(PageQueryDTO paginationQuery) {
         return PageRequest.of(paginationQuery.getPage(), Math.min(1000, paginationQuery.getSize()), Sort.by(Sort.Direction.fromString(paginationQuery.getOrder()), paginationQuery.getColumnOrder()));
