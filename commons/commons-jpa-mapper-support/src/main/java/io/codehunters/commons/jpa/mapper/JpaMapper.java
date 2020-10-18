@@ -2,6 +2,7 @@ package io.codehunters.commons.jpa.mapper;
 
 import io.codehunters.commons.dto.DTO;
 import io.codehunters.commons.repository.domain.JpaEntities;
+import org.mapstruct.Mapper;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ObjectFactory;
 import org.mapstruct.TargetType;
@@ -9,7 +10,7 @@ import org.mapstruct.TargetType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@MapperConfig(componentModel = "spring")
+@Mapper(componentModel = "spring")
 public class JpaMapper {
 
     @PersistenceContext
