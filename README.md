@@ -12,10 +12,6 @@ Under construction
 
 Under construction
 
-#### Container Parameters
-
-Under construction
-
 #### Environment Variables
 
 ## Find Us

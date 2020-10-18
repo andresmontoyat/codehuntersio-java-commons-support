@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.springframework:spring-web'
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation 'org.springframework.security:spring-security-config'
+    implementation 'org.springframework.security:spring-security-core'
+    implementation 'org.springframework.security:spring-security-web'
+    implementation 'javax.servlet:javax.servlet-api'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-orgjson:0.11.2'
+
+    implementation project(':commons:commons-util')
+    implementation project(':commons:commons-properties')
+}

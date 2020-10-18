@@ -1,8 +1,0 @@
-plugins {
-    id 'java'
-}
-
-dependencies {
-    implementation project(':commons-service')
-    implementation project(':commons-dto-pagination-support')
-}

@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'com.github.spullara.mustache.java:compiler:0.9.6'
+}
