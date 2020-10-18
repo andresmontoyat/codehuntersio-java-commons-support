@@ -12,6 +12,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Clean packages
+        uses: ./.github/actions/packages
+        with:
+          token: ${{ secrets.GH_PACKAGES_TOKEN }}
+          owner: ${{ github.actor }}
+          repository: codehunters-io-commons
+          versions: 2
       - name: Setup JDK 1.8
         uses: actions/setup-java@v1.3.0
         with:
