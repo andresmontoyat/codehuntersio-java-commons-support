@@ -9,6 +9,7 @@ dependencies {
     implementation 'org.springframework.data:spring-data-jpa'
     implementation 'org.hibernate:hibernate-core'
     implementation 'org.hibernate.validator:hibernate-validator'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 
     implementation project(':commons:commons-util')
 }
