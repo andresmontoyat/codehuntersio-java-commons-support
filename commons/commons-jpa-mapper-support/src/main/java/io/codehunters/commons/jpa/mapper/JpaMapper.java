@@ -5,15 +5,18 @@ import io.codehunters.commons.repository.domain.JpaEntities;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.ObjectFactory;
 import org.mapstruct.TargetType;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 @MapperConfig(componentModel = "spring")
-public interface JpaMapper<D extends DTO, E extends JpaEntities> extends PageDTOMapper<D, E>{
+public class JpaMapper {
+
+    @PersistenceContext
+    protected EntityManager em;
 
     @ObjectFactory
-    default E reference(D dto, @TargetType Class<E> entityClass,  @Autowired EntityManager em) {
+    public <E extends JpaEntities> E reference(DTO dto, @TargetType Class<E> entityClass) {
         try {
             return (dto.getId() != null) ? em.getReference(entityClass, dto.getId()) : entityClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
