@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+jar.enabled = true
+
+dependencies {
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation 'org.springframework.data:spring-data-jpa'
+    implementation 'org.hibernate:hibernate-core'
+    implementation 'org.hibernate.validator:hibernate-validator'
+
+    implementation project(':commons:commons-util')
+}
