@@ -7,8 +7,9 @@ import lombok.*;
  * visit to https://ipapi.co/#api for more information
  */
 @Data
+@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class IpLocation {
 
     public static String IP_API_STATUS_SUCCESS = "success";

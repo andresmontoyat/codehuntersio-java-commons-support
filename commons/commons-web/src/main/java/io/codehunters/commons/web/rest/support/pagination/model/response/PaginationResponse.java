@@ -1,4 +1,4 @@
-package io.codehunters.commons.web.rest.support.pagination.model;
+package io.codehunters.commons.web.rest.support.pagination.model.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class PageResponse<T> {
+public class PaginationResponse<T> {
 
     private List<T> data;
 

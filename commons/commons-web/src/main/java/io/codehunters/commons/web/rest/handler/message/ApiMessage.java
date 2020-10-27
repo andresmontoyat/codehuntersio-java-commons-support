@@ -6,7 +6,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
@@ -19,12 +18,4 @@ public class ApiMessage<T> extends Api {
     @JsonProperty("data")
     private T data;
 
-    public ApiMessage(String code, String message, HttpStatus status) {
-        super(code, message, status);
-    }
-
-    public ApiMessage(String code, String message, HttpStatus status, T data) {
-        super(code, message, status);
-        this.data = data;
-    }
 }

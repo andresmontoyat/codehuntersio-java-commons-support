@@ -2,15 +2,12 @@ package io.codehunters.commons.jpa.mapper;
 
 import io.codehunters.commons.dto.DTO;
 import io.codehunters.commons.repository.domain.JpaEntities;
-import org.mapstruct.Mapper;
-import org.mapstruct.MapperConfig;
-import org.mapstruct.ObjectFactory;
-import org.mapstruct.TargetType;
+import org.mapstruct.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public class JpaMapper {
 
     @PersistenceContext

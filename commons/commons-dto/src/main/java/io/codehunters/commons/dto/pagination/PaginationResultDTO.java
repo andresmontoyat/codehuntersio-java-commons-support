@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageResultDTO<T> {
+public class PaginationResultDTO<T> {
 
     private List<T> data;
 

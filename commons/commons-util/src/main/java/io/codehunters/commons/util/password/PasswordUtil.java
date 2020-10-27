@@ -25,6 +25,10 @@ public class PasswordUtil {
         return sb.toString();
     }
 
+    public static String randomNumericPass() {
+        return randomNumericPass(RANDOM_PASS);
+    }
+
     public static String randomNumericPass(int length) {
         Random random = new Random();
         StringBuffer sb = new StringBuffer();

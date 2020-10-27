@@ -1,5 +1,6 @@
-package io.codehunters.commons.jpa.mapper;
+package io.codehunters.commons.jpa.mapper.config;
 
+import io.codehunters.commons.jpa.mapper.JpaMapper;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.NullValueCheckStrategy;
 import org.mapstruct.ReportingPolicy;

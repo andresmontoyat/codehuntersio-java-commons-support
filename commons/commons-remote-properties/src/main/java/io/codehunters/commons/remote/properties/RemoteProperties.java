@@ -1,7 +1,9 @@
 package io.codehunters.commons.remote.properties;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -20,7 +22,8 @@ import java.util.Properties;
 
 @SuppressWarnings("unchecked")
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
 
     private RequestEntity requestEntity;
@@ -28,12 +31,6 @@ public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
     private String propertyKey;
 
     private String propertyValue;
-
-    public RemoteProperties(RequestEntity requestEntity, String propertyKey, String propertyValue) {
-        this.requestEntity = requestEntity;
-        this.propertyKey = propertyKey;
-        this.propertyValue = propertyValue;
-    }
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

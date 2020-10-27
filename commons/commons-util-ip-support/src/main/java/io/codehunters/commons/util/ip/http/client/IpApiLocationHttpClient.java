@@ -25,13 +25,10 @@ public class IpApiLocationHttpClient {
 
                 log.error(String.format("An error has occurred trying to search the ip location in http://ip-api.com/. %s", ipLocation.getMessage()));
             }
-        } catch (Exception e) {
-            log.error("An error has occurred trying to search the ip location in http://ip-api.com/.", e);
-        }
 
-        IpLocation defaultIpLocation = new IpLocation();
-        defaultIpLocation.setIp(ip);
-        defaultIpLocation.setStatus(IpLocation.IP_API_STATUS_FAILURE);
-        return defaultIpLocation;
+            return IpLocation.builder().ip(ip).status(IpLocation.IP_API_STATUS_FAILURE).build();
+        } catch (Exception e) {
+            throw new IpApiLocationHttpClientException("An error has occurred trying to search the ip location in http://ip-api.com/.", e);
+        }
     }
 }

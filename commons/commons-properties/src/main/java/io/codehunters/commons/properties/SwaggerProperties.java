@@ -2,7 +2,8 @@ package io.codehunters.commons.properties;
 
 import lombok.*;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class SwaggerProperties {
 }

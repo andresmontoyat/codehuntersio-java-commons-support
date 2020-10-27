@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.codehunters.commons.web.rest.handler.message.support.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.http.HttpStatus;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -18,14 +18,5 @@ public class ApiError<T> extends Api {
     @ApiModelProperty(name = "errors")
     @JsonProperty("errors")
     private T errors;
-
-    public ApiError(String code, String message, HttpStatus status) {
-        super(code, message, status);
-    }
-
-    public ApiError(String code, String message, HttpStatus status, T errors) {
-        super(code, message, status);
-        this.errors = errors;
-    }
 
 }

@@ -5,9 +5,11 @@ import lombok.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @SuppressWarnings("unchecked")
 public class DeviceInfo {
 

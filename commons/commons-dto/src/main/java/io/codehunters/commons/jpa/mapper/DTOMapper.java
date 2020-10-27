@@ -10,4 +10,5 @@ public interface DTOMapper<D, E> {
 
     E toEntity(D dto);
 
+    E toEntity(D dto, E entity);
 }

@@ -1,4 +1,4 @@
-rootProject.name = 'codehunters-io-commons'
+rootProject.name = 'codehuntersio-java-utility-support'
 
 include ':commons:commons-util'
 include ':commons:commons-util-barcode-support'
@@ -16,6 +16,7 @@ include ':commons:commons-jpa-converter-support'
 include ':commons:commons-web'
 include ':commons:commons-integration-batch-support'
 include ':commons:commons-integration-tasklets-support'
+include ':commons:commons-totp-support'
 
 include ':repository:jpa-repository-audit-support'
 include ':repository:jpa-repository-cors-support'
@@ -27,6 +28,5 @@ include ':repository:jpa-repository-otp-support'
 include ':repository:jpa-repository-parameter-support'
 include ':repository:jpa-repository-template-support'
 
-include ':security:security-totp-support'
 include ':security:security-jwt-support'
 include ':security:security-cors-support'

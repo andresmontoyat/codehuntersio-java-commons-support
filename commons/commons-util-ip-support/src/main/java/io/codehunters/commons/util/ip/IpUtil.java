@@ -25,8 +25,4 @@ public class IpUtil {
     public static IpLocation extractLocation(String ip) {
         return IpApiLocationHttpClient.call(ip);
     }
-
-    public static void main(String[] args) {
-        System.out.println(extractLocation("181.128.100.115"));
-    }
 }

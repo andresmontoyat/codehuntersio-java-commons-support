@@ -73,14 +73,13 @@ public class BarcodeUtil {
         return MatrixToImageWriter.toBufferedImage(bitMatrix);
     }
 
-    public static void readQRCodeImage(File file) throws IOException, FormatException, ChecksumException, NotFoundException {
+    public static Result readQRCodeImage(File file) throws IOException, FormatException, ChecksumException, NotFoundException {
         QRCodeReader barcodeReader = new QRCodeReader();
         InputStream barCodeInputStream = new FileInputStream(file);
         BufferedImage barCodeBufferedImage = ImageIO.read(barCodeInputStream);
         LuminanceSource source = new BufferedImageLuminanceSource(barCodeBufferedImage);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
-        Result result = barcodeReader.decode(bitmap);
-        System.out.println(result.getText());
+        return barcodeReader.decode(bitmap);
     }
 
     public static void writeFile(BufferedImage bufferedImage, BarcodeProperties barcodeProperties) throws IOException {

@@ -1,10 +1,10 @@
 package io.codehunters.commons.dto;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public abstract class GeolocationDTO<ID> extends DTO<ID> {
 
     protected Double latitude;
