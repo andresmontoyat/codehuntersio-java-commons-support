@@ -2,8 +2,9 @@ package io.codehunters.commons.properties;
 
 import lombok.*;
 
-@Getter
+@Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class RemoteTokenProperties {
 

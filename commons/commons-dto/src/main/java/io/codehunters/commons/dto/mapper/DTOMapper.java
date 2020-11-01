@@ -1,4 +1,4 @@
-package io.codehunters.commons.jpa.mapper;
+package io.codehunters.commons.dto.mapper;
 
 import java.util.List;
 

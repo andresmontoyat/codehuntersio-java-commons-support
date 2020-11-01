@@ -1,13 +1,11 @@
 package io.codehunters.commons.properties;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.core.io.Resource;
 
-@Getter
+@Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class JWTProperties {
 
