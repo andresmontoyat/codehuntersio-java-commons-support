@@ -1,4 +1,4 @@
-package io.codehunters.commons.jpa.mapper.config;
+package io.codehunters.commons.jpa.mapper;
 
 import io.codehunters.commons.jpa.mapper.JpaMapper;
 import org.mapstruct.MapperConfig;

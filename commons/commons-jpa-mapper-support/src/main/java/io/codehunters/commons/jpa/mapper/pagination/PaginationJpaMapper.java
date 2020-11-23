@@ -7,19 +7,34 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 @SuppressWarnings("unchecked")
 public interface PaginationJpaMapper<D, E> extends DTOMapper<D, E> {
 
-    default PageRequest pageRequest(PaginationQueryDTO paginationQuery) {
-        return PageRequest.of(paginationQuery.getPage(), Math.min(1000, paginationQuery.getSize()), Sort.by(Sort.Direction.fromString(paginationQuery.getOrder()), paginationQuery.getColumnsOrder().toArray(new String[paginationQuery.getColumnsOrder().size()])));
+    int DEFAULT_PAGE_SIZE = 1000;
+
+    default PageRequest toPageRequest(PaginationQueryDTO paginationQuery) {
+
+        if (Optional.ofNullable(paginationQuery.getColumns()).isPresent()) {
+            return PageRequest
+                    .of(paginationQuery.getPage(), Math.min(DEFAULT_PAGE_SIZE, paginationQuery.getSize()),
+                            Sort.by(paginationQuery.getColumns()
+                                    .entrySet()
+                                    .stream()
+                                    .map(entrySet -> new Sort.Order(Sort.Direction.fromString(entrySet.getValue()), entrySet.getKey())).collect(Collectors.toList())));
+        }
+
+        return PageRequest.of(paginationQuery.getPage(), Math.min(DEFAULT_PAGE_SIZE, paginationQuery.getSize()));
     }
 
-    default String query(PaginationQueryDTO paginationQuery) {
+    default String replaceQuery(PaginationQueryDTO paginationQuery) {
         String query = paginationQuery.getQuery();
-        return String.format("%s%%", ("".equals(query) || "*".equals(query)) ? "%" : query);
+        return String.format("%%%s%%", ("".equals(query) || "*".equals(query)) ? "%" : query);
     }
 
-    default PaginationResultDTO<D> paginationResult(Page<E> page) {
+    default PaginationResultDTO<D> toPaginationResult(Page<E> page) {
         PaginationResultDTO result = new PaginationResultDTO();
         result.setData(toDTOS(page.getContent()));
         result.setTotalRows(page.getTotalElements());
@@ -27,4 +42,5 @@ public interface PaginationJpaMapper<D, E> extends DTOMapper<D, E> {
         result.setPageNumber(page.getNumber());
         return result;
     }
+
 }

@@ -5,9 +5,9 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class PaginationResultDTO<T> {
 
     private List<T> data;

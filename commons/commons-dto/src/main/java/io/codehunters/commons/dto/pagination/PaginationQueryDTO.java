@@ -2,12 +2,15 @@ package io.codehunters.commons.dto.pagination;
 
 import lombok.*;
 
-import java.util.List;
+import java.util.Map;
 
+/**
+ * @author andres.montoya@codehunters.io
+ */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class PaginationQueryDTO {
 
     private String query;
@@ -16,7 +19,5 @@ public class PaginationQueryDTO {
 
     private int size;
 
-    private String order;
-
-    private List<String> columnsOrder;
+    private Map<String, String> columns;
 }

@@ -1,5 +1,6 @@
 package io.codehunters.commons.integration.batch.job;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.batch.core.Job;
@@ -13,16 +14,12 @@ import java.util.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class FileMessageJobRequest {
 
     private Job job;
 
     private String parameterName;
-
-    public FileMessageJobRequest(Job job, String parameterName) {
-        this.job = job;
-        this.parameterName = parameterName;
-    }
 
     @Transformer
     public JobLaunchRequest toRequest(Message<File> message) {

@@ -9,6 +9,7 @@ public class Clock {
     public static final int DEFAULT_INTERVAL = 30;
 
     private int interval;
+
     private Calendar calendar;
 
     public Clock() {
@@ -17,7 +18,6 @@ public class Clock {
 
     public Clock(int interval) {
         this.interval = interval;
-
     }
 
     public long getCurrentInterval() {

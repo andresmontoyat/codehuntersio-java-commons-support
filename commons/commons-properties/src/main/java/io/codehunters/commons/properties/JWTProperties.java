@@ -3,10 +3,11 @@ package io.codehunters.commons.properties;
 import lombok.*;
 import org.springframework.core.io.Resource;
 
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class JWTProperties {
 
     private String signingKey;

@@ -1,10 +1,13 @@
 package io.codehunters.commons.web.rest.support.pagination.model.request;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.Map;
 
 @Getter
 @Setter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class PaginationRequest {
 
     private String query;
@@ -13,7 +16,5 @@ public class PaginationRequest {
 
     private int size;
 
-    private String order;
-
-    private String columnOrder;
+    private Map<String, String> columns;
 }

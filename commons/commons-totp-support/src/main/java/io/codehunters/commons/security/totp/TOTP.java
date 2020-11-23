@@ -95,7 +95,7 @@ public class TOTP {
      * This method generates a TOTP value for the given
      * set of parameters.
      *
-     * @param secret:    the shared secret, HEX encoded
+     * @param secret: the shared secret, HEX encoded
      * @param digits: number of digits to return
      * @return: a numeric String in base 10 that includes
      */
@@ -143,8 +143,21 @@ public class TOTP {
     /**
      * This method verify a TOTP value
      *
+     * @param secret
      * @param otp
-     * @return true or false validation
+     * @return
+     */
+    public boolean verify(String secret, String otp) {
+        return verify(secret, otp, Digits.SIX);
+    }
+
+    /**
+     * This method verify a TOTP value
+     *
+     * @param secret
+     * @param otp
+     * @param digits
+     * @return
      */
     public boolean verify(String secret, String otp, Digits digits) {
         long currentInterval = clock.getCurrentInterval();
@@ -159,19 +172,4 @@ public class TOTP {
         return false;
     }
 
-    enum Digits {
-        FOUR(4),
-        SIX(6),
-        EIGHT(8);
-
-        private int digit;
-
-        Digits(int digit) {
-            this.digit = digit;
-        }
-
-        public int getDigit() {
-            return digit;
-        }
-    }
 }

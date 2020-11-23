@@ -19,5 +19,4 @@ public class CronUtil {
 
         return String.format("%d %d %d %d %d ? %d", seconds, minute, hour, day, month, year);
     }
-
 }

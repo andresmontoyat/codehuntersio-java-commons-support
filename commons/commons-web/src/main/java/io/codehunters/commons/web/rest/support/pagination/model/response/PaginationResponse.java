@@ -1,12 +1,13 @@
 package io.codehunters.commons.web.rest.support.pagination.model.response;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class PaginationResponse<T> {
 
     private List<T> data;
