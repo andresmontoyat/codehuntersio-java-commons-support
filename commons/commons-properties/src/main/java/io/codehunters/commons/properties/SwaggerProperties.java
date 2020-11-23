@@ -8,4 +8,8 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class SwaggerProperties {
+
+    private String title;
+
+    private String version;
 }
