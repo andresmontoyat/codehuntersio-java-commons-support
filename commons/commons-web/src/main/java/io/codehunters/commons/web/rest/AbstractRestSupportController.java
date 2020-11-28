@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface AbstractRestSupportController {
 
-    default URI createURI(String path, Long id) {
+    default URI createURI(String path, Object id) {
         return ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path(path)
