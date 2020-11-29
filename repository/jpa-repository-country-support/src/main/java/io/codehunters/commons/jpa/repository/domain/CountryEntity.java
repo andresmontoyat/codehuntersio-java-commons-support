@@ -20,7 +20,7 @@ public class CountryEntity extends JpaGeolocation<Long> {
     @Column(name = "commons_country_name", nullable = false, length = 120)
     private String name;
 
-    @Column(name = "commons_country_indicative", nullable = false, length = 8)
+    @Column(name = "commons_country_indicative", nullable = false, length = 40)
     private String indicative;
 
     @Column(name = "commons_country_code", nullable = false, length = 8)
