@@ -2,11 +2,15 @@ package io.codehunters.commons.jpa.mapper;
 
 import io.codehunters.commons.dto.DTO;
 import io.codehunters.commons.repository.domain.JpaEntities;
+import lombok.Getter;
+import lombok.Setter;
 import org.mapstruct.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+@Getter
+@Setter
 @Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public class JpaMapper {
 
