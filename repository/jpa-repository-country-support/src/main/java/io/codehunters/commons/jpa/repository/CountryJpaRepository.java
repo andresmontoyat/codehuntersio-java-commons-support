@@ -17,9 +17,9 @@ public interface CountryJpaRepository extends JpaRepository<CountryEntity, Long>
     @Override
     List<CountryEntity> findAll();
 
-    @Query("SELECT c FROM CountryEntity c WHERE c.status = :status ORDER BY c.name ASC")
-    List<CountryEntity> findAllByStatusEquals(@Param("status") String status);
+    @Query("SELECT c FROM CountryEntity c WHERE c.enabled = :enabled ORDER BY c.name ASC")
+    List<CountryEntity> findAllByEnabledEquals(@Param("enabled") Boolean enabled);
 
-    @Query("SELECT c FROM CountryEntity c WHERE UPPER(c.name) LIKE UPPER(:name) AND c.status = :status")
-    Page<CountryEntity> findAllByNameLike(@Param("name") String name, @Param("status") String status, Pageable pageable);
+    @Query("SELECT c FROM CountryEntity c WHERE UPPER(c.name) LIKE UPPER(:name) AND c.enabled = :enabled")
+    Page<CountryEntity> findAllByNameLike(@Param("name") String name, @Param("enabled") Boolean enabled, Pageable pageable);
 }

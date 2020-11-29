@@ -26,6 +26,6 @@ public class CountryEntity extends JpaGeolocation<Long> {
     @Column(name = "commons_country_code", nullable = false, length = 8)
     private String code;
 
-    @Column(name = "commons_country_status", nullable = false, length = 8)
-    private String status;
+    @Column(name = "commons_country_enabled", nullable = false)
+    private Boolean enabled;
 }
