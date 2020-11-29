@@ -15,9 +15,9 @@ public class PaginationQueryDTO {
 
     private String query;
 
-    private int page;
+    private Integer page;
 
-    private int size;
+    private Integer size;
 
     private Map<String, String> columns;
 }

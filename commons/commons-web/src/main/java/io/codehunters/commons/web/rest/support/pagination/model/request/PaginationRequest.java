@@ -2,6 +2,9 @@ package io.codehunters.commons.web.rest.support.pagination.model.request;
 
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.Map;
 
 @Getter
@@ -10,11 +13,16 @@ import java.util.Map;
 @Builder
 public class PaginationRequest {
 
+    @NotEmpty
     private String query;
 
-    private int page;
+    @NotNull
+    @PositiveOrZero
+    private Integer page;
 
-    private int size;
+    @NotNull
+    @PositiveOrZero
+    private Integer size;
 
     private Map<String, String> columns;
 }

@@ -1,5 +1,6 @@
 package io.codehunters.commons.web.rest.support.pagination.model.response;
 
+import io.swagger.models.auth.In;
 import lombok.*;
 
 import java.util.List;
@@ -12,9 +13,9 @@ public class PaginationResponse<T> {
 
     private List<T> data;
 
-    private long totalRows;
+    private Long totalRows;
 
-    private int pageSize;
+    private Integer pageSize;
 
-    private int pageNumber;
+    private Integer pageNumber;
 }

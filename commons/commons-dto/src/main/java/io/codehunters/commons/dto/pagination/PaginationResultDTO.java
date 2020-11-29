@@ -12,10 +12,10 @@ public class PaginationResultDTO<T> {
 
     private List<T> data;
 
-    private long totalRows;
+    private Long totalRows;
 
-    private int pageSize;
+    private Integer pageSize;
 
-    private int pageNumber;
+    private Integer pageNumber;
 
 }
