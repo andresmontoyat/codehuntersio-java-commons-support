@@ -8,6 +8,12 @@ import java.util.Base64;
 
 public class ImageUtil {
 
+    public static String encodeToString(String filename, byte[] image) throws IOException {
+        File file = new File(filename);
+        FileUtils.writeByteArrayToFile(file, image);
+        return encodeToString(file);
+    }
+
     public static String encodeToString(File image) throws IOException {
         byte[] fileContent = FileUtils.readFileToByteArray(image);
         return Base64.getEncoder().encodeToString(fileContent);
