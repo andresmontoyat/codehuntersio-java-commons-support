@@ -24,7 +24,4 @@ public interface AbstractRestSupportController<ID> {
                 .toUri();
     }
 
-    Boolean hasError(BindingResult bindingResult);
-
-    Boolean exists(ID identifier);
 }
