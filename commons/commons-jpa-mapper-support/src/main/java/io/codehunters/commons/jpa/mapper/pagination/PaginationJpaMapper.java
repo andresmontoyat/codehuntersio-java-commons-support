@@ -5,6 +5,7 @@ import io.codehunters.commons.dto.pagination.PaginationQueryDTO;
 import io.codehunters.commons.dto.pagination.PaginationResultDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.Optional;
@@ -15,8 +16,7 @@ public interface PaginationJpaMapper<D, E> extends DTOMapper<D, E> {
 
     int DEFAULT_PAGE_SIZE = 1000;
 
-    default PageRequest toPageRequest(PaginationQueryDTO paginationQuery) {
-
+    default Pageable toPageRequest(PaginationQueryDTO paginationQuery) {
         if (Optional.ofNullable(paginationQuery.getColumns()).isPresent()) {
             return PageRequest
                     .of(paginationQuery.getPage(), Math.min(DEFAULT_PAGE_SIZE, paginationQuery.getSize()),
@@ -37,9 +37,9 @@ public interface PaginationJpaMapper<D, E> extends DTOMapper<D, E> {
     default PaginationResultDTO<D> toPaginationResult(Page<E> page) {
         PaginationResultDTO result = new PaginationResultDTO();
         result.setData(toDTOS(page.getContent()));
-        result.setTotalRows(page.getTotalElements());
-        result.setPageSize(page.getSize());
-        result.setPageNumber(page.getNumber());
+        result.setRows(page.getTotalElements());
+        result.setSize(page.getSize());
+        result.setPage(page.getNumber());
         return result;
     }
 

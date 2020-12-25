@@ -25,5 +25,5 @@ public class PaginationRequest {
     @PositiveOrZero
     private Integer size;
 
-    private Map<String, String> columns;
+    private Map<String, String> sort;
 }

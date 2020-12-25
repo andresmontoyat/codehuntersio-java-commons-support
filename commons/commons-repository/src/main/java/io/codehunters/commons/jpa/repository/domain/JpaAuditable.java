@@ -38,7 +38,4 @@ public abstract class JpaAuditable implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     protected Date lastModifiedDate;
 
-    @Version
-    @Column(name = "version")
-    protected Long version;
 }

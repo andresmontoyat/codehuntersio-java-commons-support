@@ -14,9 +14,9 @@ public class PaginationResponse<T> {
 
     private List<T> data;
 
-    private Long totalRows;
+    private Long rows;
 
-    private Integer pageSize;
+    private Integer size;
 
-    private Integer pageNumber;
+    private Integer page;
 }

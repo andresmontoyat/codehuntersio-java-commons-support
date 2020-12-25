@@ -1,12 +1,11 @@
 package io.codehunters.commons.dto;
 
-import lombok.*;
-import lombok.experimental.SuperBuilder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
-@SuperBuilder
 @NoArgsConstructor
 public abstract class AuditableDTO {
 

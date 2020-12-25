@@ -1,12 +1,11 @@
 package io.codehunters.commons.web.rest;
 
-import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Map;
 
-public interface AbstractRestSupportController<ID> {
+public interface AbstractRestControllerSupport {
 
     default URI createURI(String path, Object id) {
         return ServletUriComponentsBuilder

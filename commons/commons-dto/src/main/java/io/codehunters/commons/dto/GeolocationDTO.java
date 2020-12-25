@@ -1,13 +1,13 @@
 package io.codehunters.commons.dto;
 
 import lombok.Data;
-import lombok.Getter;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.SuperBuilder;
+import lombok.ToString;
 
 @Data
-@SuperBuilder
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public abstract class GeolocationDTO<ID> extends DTO<ID> {
 
