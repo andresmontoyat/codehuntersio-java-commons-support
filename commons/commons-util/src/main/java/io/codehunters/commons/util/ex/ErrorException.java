@@ -16,10 +16,10 @@ public abstract class ErrorException extends RuntimeException {
     }
 
     public ErrorException(String message, Throwable cause) {
-        this(message, cause, DEFAULT_ERROR_CODE);
+        this(message, DEFAULT_ERROR_CODE, cause);
     }
 
-    public ErrorException(String message, Throwable cause, String code) {
+    public ErrorException(String message, String code, Throwable cause) {
         super(message, cause);
         this.code = code;
     }

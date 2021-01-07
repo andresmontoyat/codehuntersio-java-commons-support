@@ -8,7 +8,11 @@ public class JpaRepositoryException extends ErrorException {
         super(message, code);
     }
 
-    public JpaRepositoryException(String message, Throwable cause, String code) {
-        super(message, cause, code);
+    public JpaRepositoryException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public JpaRepositoryException(String message, String code, Throwable cause) {
+        super(message, code, cause);
     }
 }

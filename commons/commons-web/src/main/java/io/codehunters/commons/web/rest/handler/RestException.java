@@ -19,14 +19,14 @@ public class RestException extends ErrorException {
     private List errors;
 
     public RestException(String message, HttpStatus status) {
-        this(message, status, DEFAULT_ERROR_CODE, null);
+        this(message, DEFAULT_ERROR_CODE, status, null);
     }
 
-    public RestException(String message, HttpStatus status, String code) {
-        this(message, status, code, null);
+    public RestException(String message, String code, HttpStatus status) {
+        this(message, code, status, null);
     }
 
-    public RestException(String message, HttpStatus status, String code, List errors) {
+    public RestException(String message, String code, HttpStatus status, List errors) {
         super(message, code);
 
         this.status = status;
@@ -34,18 +34,17 @@ public class RestException extends ErrorException {
     }
 
     public RestException(String message, Throwable cause, HttpStatus status) {
-        this(message, cause, status, DEFAULT_ERROR_CODE, null);
+        this(message, DEFAULT_ERROR_CODE, cause, status, null);
     }
 
-    public RestException(String message, Throwable cause, HttpStatus status, String code) {
-        this(message, cause, status, code, null);
+    public RestException(String message, String code, Throwable cause, HttpStatus status) {
+        this(message, code, cause, status, null);
     }
 
-    public RestException(String message, Throwable cause, HttpStatus status, String code, List errors) {
-        super(message, cause, code);
+    public RestException(String message, String code, Throwable cause, HttpStatus status, List errors) {
+        super(message, code, cause);
 
         this.status = status;
         this.errors = errors;
     }
-
 }
