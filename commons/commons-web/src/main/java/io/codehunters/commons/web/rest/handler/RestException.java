@@ -22,6 +22,10 @@ public class RestException extends ErrorException {
         this(message, DEFAULT_ERROR_CODE, status, null);
     }
 
+    public RestException(String message, HttpStatus status, List errors) {
+        this(message, DEFAULT_ERROR_CODE, status, errors);
+    }
+
     public RestException(String message, String code, HttpStatus status) {
         this(message, code, status, null);
     }
