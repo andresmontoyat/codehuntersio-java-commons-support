@@ -23,7 +23,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Versioning
 
 ## Authors
-    * Andrés Montoya - (https://andres.codehunters.io)
+    * Andrés Montoya - (https://andresmontoyat.co)
 
 ## License
 
