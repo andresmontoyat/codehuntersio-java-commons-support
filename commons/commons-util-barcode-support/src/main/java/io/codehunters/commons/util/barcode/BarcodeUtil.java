@@ -83,7 +83,7 @@ public class BarcodeUtil {
     }
 
     public static void writeFile(BufferedImage bufferedImage, BarcodeProperties barcodeProperties) throws IOException {
-        ImageIO.write(bufferedImage, barcodeProperties.getImageFormat().getFormat(), new File(barcodeProperties.getPathFile()));
+        ImageIO.write(bufferedImage, barcodeProperties.getImageFormat(), new File(barcodeProperties.getPathFile()));
     }
 
 }

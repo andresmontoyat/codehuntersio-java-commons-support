@@ -1,9 +1,6 @@
 package io.codehunters.commons.remote.properties;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -22,8 +19,9 @@ import java.util.Properties;
 
 @SuppressWarnings("unchecked")
 @Getter
-@Builder
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
 
     private RequestEntity requestEntity;

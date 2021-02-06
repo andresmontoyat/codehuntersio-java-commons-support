@@ -2,8 +2,7 @@ export default [
   'io.codehunters.commons.commons-util',
   'io.codehunters.commons.commons-util-barcode-support',
   'io.codehunters.commons.commons-util-ip-support',
-  'io.codehunters.commons.commons-util-device-support',
-  'io.codehunters.commons.commons-util-hashids-support',
+  'io.codehunters.commons.commons-util-device-support',s
   'io.codehunters.commons.commons-util-jasperreport-support',
   'io.codehunters.commons.commons-util-template-mustache-support',
   'io.codehunters.commons.commons-properties',

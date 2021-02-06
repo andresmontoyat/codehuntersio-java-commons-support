@@ -39,7 +39,6 @@ public abstract class AbstractIntegrationBatchSupport {
 
     public AbstractIntegrationBatchSupport(String filePathParam, JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this(jobLauncher, jobBuilderFactory, stepBuilderFactory);
-
         this.filePathParam = filePathParam;
     }
 

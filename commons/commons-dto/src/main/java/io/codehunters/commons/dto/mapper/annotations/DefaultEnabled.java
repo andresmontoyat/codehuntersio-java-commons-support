@@ -7,5 +7,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.CLASS)
 @Mapping(target = "enabled", constant = "true")
-public @interface Enabled {
+public @interface DefaultEnabled {
 }

@@ -7,3 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.2.23] - 2021-01-08
 - Refactoring all modules
 - Remove old code
+
+
+## [2.2.24] - 2021-01-08
+- Refactoring all modules
+- Remove old code
