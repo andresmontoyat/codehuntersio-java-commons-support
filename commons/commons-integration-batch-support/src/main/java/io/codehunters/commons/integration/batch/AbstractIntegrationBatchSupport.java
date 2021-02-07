@@ -30,14 +30,14 @@ public abstract class AbstractIntegrationBatchSupport {
 
     protected String filePathParam;
 
-    public AbstractIntegrationBatchSupport(JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+    protected AbstractIntegrationBatchSupport(JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this.filePathParam = DEFAULT_FILE_PATH_PARAM;
         this.jobLauncher = jobLauncher;
         this.jobBuilderFactory = jobBuilderFactory;
         this.stepBuilderFactory = stepBuilderFactory;
     }
 
-    public AbstractIntegrationBatchSupport(String filePathParam, JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+    protected AbstractIntegrationBatchSupport(String filePathParam, JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
         this(jobLauncher, jobBuilderFactory, stepBuilderFactory);
         this.filePathParam = filePathParam;
     }

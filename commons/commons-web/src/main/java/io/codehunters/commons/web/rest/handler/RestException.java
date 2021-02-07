@@ -14,15 +14,15 @@ public class RestException extends ErrorException {
 
     public static final String DEFAULT_ERROR_CODE = "API-ERR";
 
-    private HttpStatus status;
+    private final HttpStatus status;
 
-    private List errors;
+    private final List<? extends Object> errors;
 
     public RestException(String message, HttpStatus status) {
         this(message, DEFAULT_ERROR_CODE, status, null);
     }
 
-    public RestException(String message, HttpStatus status, List errors) {
+    public RestException(String message, HttpStatus status, List<? extends Object> errors) {
         this(message, DEFAULT_ERROR_CODE, status, errors);
     }
 
@@ -30,7 +30,7 @@ public class RestException extends ErrorException {
         this(message, code, status, null);
     }
 
-    public RestException(String message, String code, HttpStatus status, List errors) {
+    public RestException(String message, String code, HttpStatus status, List<? extends Object> errors) {
         super(message, code);
 
         this.status = status;
@@ -45,7 +45,7 @@ public class RestException extends ErrorException {
         this(message, code, cause, status, null);
     }
 
-    public RestException(String message, String code, Throwable cause, HttpStatus status, List errors) {
+    public RestException(String message, String code, Throwable cause, HttpStatus status, List<? extends Object> errors) {
         super(message, code, cause);
 
         this.status = status;
