@@ -14,7 +14,7 @@ import java.io.Serializable;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
-public abstract class JpaGeolocation<ID extends Serializable> extends JpaEntities<ID> {
+public abstract class GeolocationJpaEntity<ID extends Serializable> extends JpaEntities<ID> {
 
     @Column(name = "latitude")
     protected Double latitude;

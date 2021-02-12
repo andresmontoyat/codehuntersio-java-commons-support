@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_countries")
-public class CountryEntity extends JpaGeolocation<Long> {
+public class CountryEntity extends GeolocationJpaEntity<Long> {
 
     @Column(name = "commons_country_name", nullable = false, length = 120)
     private String name;

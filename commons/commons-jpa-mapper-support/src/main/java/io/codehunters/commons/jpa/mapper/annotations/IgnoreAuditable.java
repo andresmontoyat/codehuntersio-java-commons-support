@@ -1,4 +1,4 @@
-package io.codehunters.commons.dto.mapper.annotations;
+package io.codehunters.commons.jpa.mapper.annotations;
 
 import org.mapstruct.Mapping;
 

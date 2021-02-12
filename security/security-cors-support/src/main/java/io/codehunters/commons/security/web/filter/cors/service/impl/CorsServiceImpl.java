@@ -1,7 +1,7 @@
 package io.codehunters.commons.security.web.filter.cors.service.impl;
 
 import io.codehunters.commons.jpa.repository.cors.CorsJpaRepository;
-import io.codehunters.commons.jpa.repository.cors.domain.CorsEntity;
+import io.codehunters.commons.jpa.repository.cors.domain.CorsEntities;
 import io.codehunters.commons.security.web.filter.cors.service.CorsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class CorsServiceImpl implements CorsService {
 
     @Override
     public List<String> fetchAll() {
-        List<CorsEntity> result = corsJpaRepository.findAll();
+        List<CorsEntities> result = corsJpaRepository.findAll();
         if(result != null) {
             return result.stream()
                     .map(cors -> cors.getUrls())

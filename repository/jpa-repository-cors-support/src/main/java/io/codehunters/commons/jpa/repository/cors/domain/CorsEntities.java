@@ -21,7 +21,7 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_security_cors")
-public class CorsEntity extends JpaEntities<Long> {
+public class CorsEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_cors_client_id", nullable = false)
     private Long clientId;

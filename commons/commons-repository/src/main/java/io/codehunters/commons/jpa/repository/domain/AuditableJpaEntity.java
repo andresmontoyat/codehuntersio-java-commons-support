@@ -23,7 +23,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class JpaAuditable implements Serializable {
+public abstract class AuditableJpaEntity implements Serializable {
 
     @CreatedBy
     @Column(name = "created_by")

@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_audit_log")
-public class AuditEntity extends JpaEntities<Long> {
+public class AuditEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_audit_type", nullable = false, length = 80)
     private String type;

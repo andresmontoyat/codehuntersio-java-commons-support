@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_notifications")
-public class NotificationEntity extends JpaEntities<Long> {
+public class NotificationEntities extends JpaEntities<Long> {
 
         @Enumerated(EnumType.STRING)
         @Column(name = "commons_notif_type", nullable = false, length = 80)

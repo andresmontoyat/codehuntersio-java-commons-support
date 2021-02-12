@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 @Getter
 @Setter
 @Mapper(componentModel = "spring", nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public class JpaMapper {
+public class EntityMapperJpa {
 
     @PersistenceContext
     protected EntityManager em;
@@ -22,7 +22,7 @@ public class JpaMapper {
         try {
             return (dto.getId() != null) ? em.getReference(entityClass, dto.getId()) : entityClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            throw new JpaMapperException("An error has occurred trying to get new reference of entity", e);
+            throw new MapperJpaException("An error has occurred trying to get new reference of entity", e);
         }
     }
 }

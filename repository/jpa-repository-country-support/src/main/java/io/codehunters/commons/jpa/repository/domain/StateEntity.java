@@ -13,7 +13,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_states")
-public class StateEntity extends JpaGeolocation<Long> {
+public class StateEntity extends GeolocationJpaEntity<Long> {
 
     @Column(name = "commons_state_name", nullable = false, length = 120)
     private String name;

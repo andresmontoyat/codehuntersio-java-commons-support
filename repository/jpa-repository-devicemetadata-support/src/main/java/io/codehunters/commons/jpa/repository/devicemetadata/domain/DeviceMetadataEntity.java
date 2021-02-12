@@ -1,7 +1,7 @@
 package io.codehunters.commons.jpa.repository.devicemetadata.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.JpaGeolocation;
+import io.codehunters.commons.jpa.repository.domain.GeolocationJpaEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_devices_metadata")
-public class DeviceMetadataEntity extends JpaGeolocation<Long> {
+public class DeviceMetadataEntity extends GeolocationJpaEntity<Long> {
 
     @Column(name = "commons_device_status", nullable = false, length = 20)
     private String status;

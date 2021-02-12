@@ -24,7 +24,7 @@ import java.util.Map;
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = {"commons_otp_code", "commons_otp_username", "commons_otp_sent_date"})
         })
-public class OtpEntity extends JpaEntities<Long> {
+public class OtpEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_otp_code", nullable = false, length = 8)
     private String otp;

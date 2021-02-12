@@ -17,7 +17,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_menu_ui")
-public class MenuUIEntity extends JpaEntities<Long> {
+public class MenuUIEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_menu_name", nullable = false, length = 80)
     private String name;
@@ -46,8 +46,8 @@ public class MenuUIEntity extends JpaEntities<Long> {
 
     @ManyToOne
     @JoinColumn(name = "parent_menu_id", referencedColumnName = "id")
-    private MenuUIEntity parent;
+    private MenuUIEntities parent;
 
     @OneToMany(mappedBy = "parent")
-    private List<MenuUIEntity> submenus;
+    private List<MenuUIEntities> submenus;
 }
