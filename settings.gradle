@@ -1,4 +1,4 @@
-rootProject.name = 'codehuntersio-java-utility-support'
+rootProject.name = 'codehuntersio-java-commons-support'
 
 include ':commons:commons-util'
 include ':commons:commons-util-barcode-support'
