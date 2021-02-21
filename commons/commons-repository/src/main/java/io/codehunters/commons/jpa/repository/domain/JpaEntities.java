@@ -27,6 +27,6 @@ public abstract class JpaEntities<ID extends Serializable> extends AuditableJpaE
 
     @Override
     public boolean isNew() {
-        return Optional.ofNullable(this.id).isPresent();
+        return (id != null);
     }
 }
