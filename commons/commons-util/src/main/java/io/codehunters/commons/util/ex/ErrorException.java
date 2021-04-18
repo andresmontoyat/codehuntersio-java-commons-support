@@ -6,6 +6,10 @@ public abstract class ErrorException extends RuntimeException {
 
     private String code;
 
+    public ErrorException(String message) {
+        this(message, DEFAULT_ERROR_CODE);
+    }
+
     public ErrorException(String message, String code) {
         super(message);
         this.code = code;
