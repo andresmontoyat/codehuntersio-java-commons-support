@@ -37,7 +37,7 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.12'
         annotationProcessor "org.mapstruct:mapstruct-processor:1.4.1.Final"
 
-        testCompile 'junit:junit'
+        //test 'junit:junit'
     }
 
     dependencyManagement {
