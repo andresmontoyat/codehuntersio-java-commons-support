@@ -19,12 +19,12 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_notif_templates")
-public class TemplateEntities extends JpaEntities<Long> {
+public class TemplateJpaEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_notif_templ_name", nullable = false, length = 80)
     private String name;
 
-    @Column(name = "commons_notif_templ_code", unique = true, nullable = false, length = 20)
+    @Column(name = "commons_notif_templ_code", nullable = false, length = 20)
     private String code;
 
     @Column(name = "commons_notif_templ_is_mail")
