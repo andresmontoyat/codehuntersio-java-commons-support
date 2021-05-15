@@ -1,4 +1,4 @@
-package io.codehunters.commons.web.rest.support.pagination;
+package io.codehunters.commons.web.rest.support;
 
 import io.codehunters.commons.web.rest.handler.RestException;
 import org.springframework.http.HttpStatus;
