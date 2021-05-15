@@ -29,3 +29,6 @@ include ':repository:jpa-repository-template-support'
 
 include ':security:security-jwt-support'
 include ':security:security-cors-support'
+include 'commons:commons-util-mail'
+findProject(':commons:commons-util-mail')?.name = 'commons-util-mail'
+

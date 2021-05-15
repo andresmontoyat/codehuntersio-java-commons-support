@@ -35,7 +35,7 @@ public interface PaginationMapperJpa<D, E> extends DTOMapper<D, E> {
     }
 
     default PaginationResultDTO<D> toPaginationResult(Page<E> page) {
-        PaginationResultDTO result = new PaginationResultDTO();
+        PaginationResultDTO<D> result = new PaginationResultDTO<>();
         result.setData(toDTOS(page.getContent()));
         result.setRows(page.getTotalElements());
         result.setSize(page.getSize());

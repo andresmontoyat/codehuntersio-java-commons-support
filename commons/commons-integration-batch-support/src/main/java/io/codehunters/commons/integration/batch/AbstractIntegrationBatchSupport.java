@@ -2,7 +2,6 @@ package io.codehunters.commons.integration.batch;
 
 import io.codehunters.commons.integration.batch.job.FileMessageJobRequest;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -17,36 +16,37 @@ import java.io.File;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public abstract class AbstractIntegrationBatchSupport {
 
     public static final String DEFAULT_FILE_PATH_PARAM = "file_path";
 
-    protected JobLauncher jobLauncher;
+    protected final JobLauncher jobLauncher;
 
-    protected JobBuilderFactory jobBuilderFactory;
+    protected final JobBuilderFactory jobBuilderFactory;
 
-    protected StepBuilderFactory stepBuilderFactory;
+    protected final StepBuilderFactory stepBuilderFactory;
 
     protected String filePathParam;
 
     protected AbstractIntegrationBatchSupport(JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
-        this.filePathParam = DEFAULT_FILE_PATH_PARAM;
         this.jobLauncher = jobLauncher;
         this.jobBuilderFactory = jobBuilderFactory;
         this.stepBuilderFactory = stepBuilderFactory;
+        this.filePathParam = DEFAULT_FILE_PATH_PARAM;
     }
 
     protected AbstractIntegrationBatchSupport(String filePathParam, JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
-        this(jobLauncher, jobBuilderFactory, stepBuilderFactory);
+        this.jobLauncher = jobLauncher;
+        this.jobBuilderFactory = jobBuilderFactory;
+        this.stepBuilderFactory = stepBuilderFactory;
         this.filePathParam = filePathParam;
     }
 
-    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, FileReadingMessageSource.WatchEventType...events) {
+    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, FileReadingMessageSource.WatchEventType... events) {
         return fileReadingMessageSource(directory, filter, Boolean.TRUE, Boolean.TRUE, events);
     }
 
-    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, Boolean useWatchService, Boolean autoCreateDirectory, FileReadingMessageSource.WatchEventType...events) {
+    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, Boolean useWatchService, Boolean autoCreateDirectory, FileReadingMessageSource.WatchEventType... events) {
         FileReadingMessageSource source = new FileReadingMessageSource();
         source.setDirectory(new File(directory));
         source.setFilter(new SimplePatternFileListFilter(filter));
@@ -61,7 +61,7 @@ public abstract class AbstractIntegrationBatchSupport {
     }
 
     protected FileMessageJobRequest fileMessageJobRequest(Job job) {
-        return new FileMessageJobRequest(job,  filePathParam);
+        return new FileMessageJobRequest(job, filePathParam);
     }
 
 }

@@ -3,16 +3,20 @@ package io.codehunters.commons.util.mustache;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheException;
 import com.github.mustachejava.MustacheFactory;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.*;
 
-@Data
-@Builder
-@AllArgsConstructor
+@Getter
+@Setter
 public class MustacheHelper {
 
-    private MustacheFactory mustacheFactory;
+    private final MustacheFactory mustacheFactory;
+
+    public MustacheHelper(MustacheFactory mustacheFactory) {
+        this.mustacheFactory = mustacheFactory;
+    }
 
     public String parse(Object parameters, String strTemplate) {
         StringWriter stringWriter = new StringWriter();

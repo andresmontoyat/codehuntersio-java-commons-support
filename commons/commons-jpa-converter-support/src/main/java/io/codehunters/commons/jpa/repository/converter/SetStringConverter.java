@@ -14,7 +14,7 @@ public class SetStringConverter extends DomainAttributeConverter implements Attr
     @Override
     public String convertToDatabaseColumn(Set<String> setStrings) {
         try {
-            return mapper.writeValueAsString(setStrings);
+            return converterMapper.writeValueAsString(setStrings);
         } catch (Exception e) {
             throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert the set strings to json %s", setStrings), e);
         }
@@ -23,7 +23,7 @@ public class SetStringConverter extends DomainAttributeConverter implements Attr
     @Override
     public Set<String> convertToEntityAttribute(String json) {
         try {
-            return !Util.isNull(json) ? mapper.readValue(json, collectionType(Set.class, String.class)) : null;
+            return !Util.isNull(json) ? converterMapper.readValue(json, collectionType(Set.class, String.class)) : null;
         } catch (Exception e) {
             throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert json to set strings %s", json), e);
         }

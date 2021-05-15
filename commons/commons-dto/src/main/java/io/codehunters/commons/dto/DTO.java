@@ -1,18 +1,17 @@
 package io.codehunters.commons.dto;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-@Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
+import java.io.Serializable;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @SuperBuilder
-public abstract class DTO<ID> extends AuditableDTO {
+public abstract class DTO<I extends Serializable> extends AuditableDTO {
 
-    protected ID id;
-
+    protected I id;
 }

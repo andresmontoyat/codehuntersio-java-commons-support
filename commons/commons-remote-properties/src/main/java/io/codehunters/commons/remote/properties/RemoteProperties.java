@@ -32,7 +32,7 @@ public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        final Map properties = new Properties();
+        Map properties = new Properties();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List> response = restTemplate.exchange(requestEntity, List.class);

@@ -9,13 +9,13 @@ import java.util.Map;
 
 public abstract class DomainAttributeConverter {
 
-    protected ObjectMapper mapper = new ObjectMapper();
+    protected final ObjectMapper converterMapper = new ObjectMapper();
     
     protected CollectionType collectionType(Class<? extends Collection> collectionClass, Class<?> elementClass) {
-        return mapper.getTypeFactory().constructCollectionType(collectionClass, elementClass);
+        return converterMapper.getTypeFactory().constructCollectionType(collectionClass, elementClass);
     }
 
     protected MapType mapType(Class<? extends Map> mapClass, Class<?> elementKey, Class<?> elementValue) {
-        return mapper.getTypeFactory().constructMapType(mapClass, elementKey, elementValue);
+        return converterMapper.getTypeFactory().constructMapType(mapClass, elementKey, elementValue);
     }
 }

@@ -32,7 +32,7 @@ public class TOTP {
             // 0  1   2    3     4      5       6        7         8
             = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
 
-    private Clock clock;
+    private final Clock clock;
 
     public TOTP() {
         this.clock = new Clock();
@@ -40,6 +40,10 @@ public class TOTP {
 
     public TOTP(int interval) {
         this.clock = new Clock(interval);
+    }
+
+    public TOTP(int interval, String timeZone) {
+        this.clock = new Clock(interval, timeZone);
     }
 
     /**
@@ -113,7 +117,7 @@ public class TOTP {
      * @return returnDigits: a numeric String in base 10 that includes number of digits to return
      */
     private String generate(String secret, Digits digits, long interval) {
-        String result = null;
+        StringBuilder result = new StringBuilder();
         int codeDigits = digits.getDigit();
         // Using the counter
         // First 8 bytes are for the movingFactor
@@ -132,12 +136,11 @@ public class TOTP {
                         (hash[offset + 3] & 0xff);
 
         int otp = binary % DIGITS_POWER[codeDigits];
-
-        result = Integer.toString(otp);
+        result.append(otp);
         while (result.length() < codeDigits) {
-            result = "0" + result;
+            result.append("0" + result);
         }
-        return result;
+        return result.toString();
     }
 
     /**

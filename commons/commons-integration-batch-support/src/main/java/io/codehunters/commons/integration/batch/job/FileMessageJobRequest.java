@@ -1,8 +1,6 @@
 package io.codehunters.commons.integration.batch.job;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParametersBuilder;
@@ -15,17 +13,20 @@ import java.util.Date;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class FileMessageJobRequest {
 
     public static final String JOB_PARAM_FILE_NAME = "fileName";
     public static final String JOB_PARAM = "job_param";
     public static final String JOB_PARAM_CURRENT_DATE = "currentDate";
 
-    private Job job;
+    protected final Job job;
 
-    private String parameterName;
+    protected final String parameterName;
+
+    public FileMessageJobRequest(Job job, String parameterName) {
+        this.job = job;
+        this.parameterName = parameterName;
+    }
 
     @Transformer
     public JobLaunchRequest toRequest(Message<File> message) {

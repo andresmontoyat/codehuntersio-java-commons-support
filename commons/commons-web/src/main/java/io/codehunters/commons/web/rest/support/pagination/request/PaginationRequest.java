@@ -1,8 +1,7 @@
-package io.codehunters.commons.web.rest.support.pagination.model.request;
+package io.codehunters.commons.web.rest.support.pagination.request;
 
 import lombok.*;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.Map;
@@ -14,7 +13,6 @@ import java.util.Map;
 @Builder
 public class PaginationRequest {
 
-    @NotEmpty
     private String query;
 
     @NotNull

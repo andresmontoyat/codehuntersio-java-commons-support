@@ -14,18 +14,18 @@ public class MapStringKeyWithStringValueConverter extends DomainAttributeConvert
     @Override
     public String convertToDatabaseColumn(Map<String, String> mapStrings) {
         try {
-            return mapper.writeValueAsString(mapStrings);
+            return converterMapper.writeValueAsString(mapStrings);
         } catch (Exception e) {
-            throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert the map string to json %s", mapStrings), e);
+            throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert the map string with list strings to json %s", mapStrings), e);
         }
     }
 
     @Override
     public Map<String, String> convertToEntityAttribute(String json) {
         try {
-            return !Util.isNull(json) ? mapper.readValue(json, mapType(Map.class, String.class, String.class)) : null;
+            return !Util.isNull(json) ? converterMapper.readValue(json, mapType(Map.class, String.class, String.class)) : null;
         } catch (Exception e) {
-            throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert json to map string %s", json), e);
+            throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert json to map string with list strings %s", json), e);
         }
     }
 }

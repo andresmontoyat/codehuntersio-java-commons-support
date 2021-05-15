@@ -1,8 +1,6 @@
 package io.codehunters.commons.integration.tasklet;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.StepContribution;
@@ -20,17 +18,20 @@ import java.nio.file.StandardCopyOption;
 @Slf4j
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class FileMoveTasklet implements Tasklet {
 
-    private String filePathParameter;
+    private final String filePathParameter;
 
-    private String newFilePath;
+    private final String newFilePath;
+
+    public FileMoveTasklet(String filePathParameter, String newFilePath) {
+        this.filePathParameter = filePathParameter;
+        this.newFilePath = newFilePath;
+    }
 
     @Override
     public RepeatStatus execute(StepContribution contribution,
-                                ChunkContext chunkContext) throws Exception {
+                                ChunkContext chunkContext) {
         log.info("MOVE FILE");
         File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter));
         try {

@@ -1,9 +1,6 @@
 package io.codehunters.commons.dto.pagination;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Map;
@@ -11,7 +8,8 @@ import java.util.Map;
 /**
  * @author andres.montoya@codehunters.io
  */
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @SuperBuilder

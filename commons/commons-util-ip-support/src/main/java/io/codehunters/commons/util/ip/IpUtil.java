@@ -3,9 +3,12 @@ package io.codehunters.commons.util.ip;
 import io.codehunters.commons.util.Util;
 import io.codehunters.commons.util.ip.http.client.IpApiLocationHttpClient;
 import io.codehunters.commons.util.ip.http.client.support.IpLocation;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import javax.servlet.http.HttpServletRequest;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class IpUtil {
 
     public static final String HEADER_X_FORWARDED_FOR = "x-forwarded-for";

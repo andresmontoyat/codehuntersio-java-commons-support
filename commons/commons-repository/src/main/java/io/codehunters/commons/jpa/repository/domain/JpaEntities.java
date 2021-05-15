@@ -1,27 +1,26 @@
 package io.codehunters.commons.jpa.repository.domain;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Optional;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
-public abstract class JpaEntities<ID extends Serializable> extends AuditableJpaEntity implements Persistable<ID> {
+public abstract class JpaEntities<I extends Serializable> extends AuditableJpaEntity implements Persistable<I> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    protected ID id;
+    protected I id;
 
     @Override
-    public ID getId() {
+    public I getId() {
         return id;
     }
 

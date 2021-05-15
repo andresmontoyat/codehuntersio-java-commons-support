@@ -16,9 +16,11 @@ public class JWTProperties {
 
     private String keyStorePassword;
 
-    private String keyPairAlias;
+    private String privateKeyAlias;
 
-    private String keyPairPassword;
+    private String privateKeyPassword;
+
+    private String certificateAlias;
 
     private TokenProperties token;
 

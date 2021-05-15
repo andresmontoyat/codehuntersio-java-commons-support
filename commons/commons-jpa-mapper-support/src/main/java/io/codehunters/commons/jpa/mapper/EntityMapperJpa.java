@@ -8,6 +8,7 @@ import org.mapstruct.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.io.Serializable;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ public class EntityMapperJpa {
     protected EntityManager em;
 
     @ObjectFactory
-    public <E extends JpaEntities> E reference(DTO dto, @TargetType Class<E> entityClass) {
+    public <E extends JpaEntities> E reference(DTO<? extends Serializable> dto, @TargetType Class<E> entityClass) {
         try {
             return (dto.getId() != null) ? em.getReference(entityClass, dto.getId()) : entityClass.getDeclaredConstructor().newInstance();
         } catch (Exception e) {

@@ -1,8 +1,10 @@
 package io.codehunters.commons.util.device;
 
-import io.codehunters.commons.util.device.dto.DeviceInfo;
+import io.codehunters.commons.util.device.dto.Device;
 import io.codehunters.commons.util.ip.IpUtil;
 import io.codehunters.commons.util.ip.http.client.support.IpLocation;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ua_parser.Client;
 import ua_parser.Parser;
@@ -11,18 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Slf4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DeviceUtil {
 
     public static final String HEADER_USER_AGENT = "User-Agent";
 
-    public static DeviceInfo get(HttpServletRequest request) {
-        DeviceInfo deviceInfo = new DeviceInfo();
+    public static Device device(HttpServletRequest request) {
+        Device device = new Device();
 
         IpLocation ipLocation = IpUtil.extractLocation(request);
-        deviceInfo.setIp(ipLocation.getIp());
+        device.setIp(ipLocation.getIp());
+
         if(IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
-            deviceInfo.setLocation(ipLocation.getCity());
-            deviceInfo
+            device.setLocation(ipLocation.getCity());
+            device
                     .addAdditionalInfo("continent", ipLocation.getContinent())
                     .addAdditionalInfo("region", ipLocation.getRegion())
                     .addAdditionalInfo("country", ipLocation.getCountry())
@@ -38,37 +42,32 @@ public class DeviceUtil {
                     .addAdditionalInfo("currency", ipLocation.getCurrency())
                     .addAdditionalInfo("ispName", ipLocation.getIspName());
 
-            deviceInfo.setLatitude(ipLocation.getLatitude());
-            deviceInfo.setLongitude(ipLocation.getLongitude());
+            device.setLatitude(ipLocation.getLatitude());
+            device.setLongitude(ipLocation.getLongitude());
         }
 
-        Optional.ofNullable(getClient(request)).ifPresent(client -> {
-            deviceInfo.setUserAgent(getUserAgent(client));
-            deviceInfo.addAdditionalInfo("user-agent", client.toString());
-        });
-
-        return deviceInfo;
+        Optional.ofNullable(getClient(request)).ifPresent(client -> device.setUserAgent(getUserAgent(client)));
+        return device;
     }
 
-    private static String getUserAgent(HttpServletRequest request) {
+    public static String getUserAgent(HttpServletRequest request) {
         Client client = getClient(request);
-        if(client != null) {
+        if(Optional.ofNullable(client).isPresent()) {
             return getUserAgent(client);
         }
         return null;
     }
 
-    private static String getUserAgent(Client client) {
+    public static String getUserAgent(Client client) {
         return String.format("%s.%s.%s|%s.%s.%s|%s", client.userAgent.family, client.userAgent.major, client.userAgent.minor,
                 client.os.family, client.os.major, client.os.minor,
                 client.device.family);
     }
 
-    private static Client getClient(HttpServletRequest request) {
+    public static Client getClient(HttpServletRequest request) {
         try {
             Parser parser = new Parser();
-            Client client = parser.parse(request.getHeader(HEADER_USER_AGENT));
-            return client;
+            return parser.parse(request.getHeader(HEADER_USER_AGENT));
         } catch (Exception e) {
             log.error("An error has occurred trying to parser user-agent.", e);
         }

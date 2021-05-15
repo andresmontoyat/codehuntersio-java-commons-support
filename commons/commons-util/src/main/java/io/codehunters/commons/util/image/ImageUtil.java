@@ -1,11 +1,14 @@
 package io.codehunters.commons.util.image;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ImageUtil {
 
     public static String encodeToString(String filename, byte[] image) throws IOException {

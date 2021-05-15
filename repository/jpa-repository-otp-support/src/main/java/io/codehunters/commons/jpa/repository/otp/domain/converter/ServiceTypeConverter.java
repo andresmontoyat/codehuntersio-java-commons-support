@@ -15,7 +15,7 @@ public class ServiceTypeConverter extends DomainAttributeConverter implements At
     @Override
     public String convertToDatabaseColumn(List<OtpServiceType> OtpServiceTypes) {
         try {
-            return mapper.writeValueAsString(OtpServiceTypes);
+            return converterMapper.writeValueAsString(OtpServiceTypes);
         } catch (Exception e) {
             throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert the map string to json %s", OtpServiceTypes), e);
         }
@@ -24,7 +24,7 @@ public class ServiceTypeConverter extends DomainAttributeConverter implements At
     @Override
     public List<OtpServiceType> convertToEntityAttribute(String json) {
         try {
-            return !Util.isNull(json) ? mapper.readValue(json, collectionType(List.class, OtpServiceType.class)) : null;
+            return !Util.isNull(json) ? converterMapper.readValue(json, collectionType(List.class, OtpServiceType.class)) : null;
         } catch (Exception e) {
             throw new DomainAttributeConverterException(String.format("An error occurred while trying to convert json to set of string values %s", json), e);
         }

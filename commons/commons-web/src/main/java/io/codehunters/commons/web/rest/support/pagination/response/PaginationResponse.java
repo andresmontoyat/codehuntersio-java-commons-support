@@ -1,6 +1,6 @@
-package io.codehunters.commons.web.rest.support.pagination.model.response;
+package io.codehunters.commons.web.rest.support.pagination.response;
 
-import io.swagger.models.auth.In;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -12,11 +12,15 @@ import java.util.List;
 @Builder
 public class PaginationResponse<T> {
 
+    @JsonProperty("data")
     private List<T> data;
 
+    @JsonProperty("rows")
     private Long rows;
 
+    @JsonProperty("size")
     private Integer size;
 
+    @JsonProperty("page")
     private Integer page;
 }

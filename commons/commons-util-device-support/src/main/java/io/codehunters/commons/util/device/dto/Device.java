@@ -5,12 +5,13 @@ import lombok.*;
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
-@Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 @SuppressWarnings("unchecked")
-public class DeviceInfo {
+public class Device {
 
     private Long serialId;
 
@@ -26,9 +27,9 @@ public class DeviceInfo {
 
     private Map<String, Object> additionalInfo;
 
-    public DeviceInfo addAdditionalInfo(String key, Object value) {
+    public Device addAdditionalInfo(String key, Object value) {
         if(this.additionalInfo == null) {
-            this.additionalInfo = new HashMap<String, Object>();
+            this.additionalInfo = new HashMap<>();
         }
 
         this.additionalInfo.put(key, value);

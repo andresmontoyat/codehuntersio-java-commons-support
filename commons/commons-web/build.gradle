@@ -8,7 +8,7 @@ dependencies {
     implementation 'org.springframework:spring-web'
     implementation 'org.springframework:spring-webmvc'
     implementation 'javax.servlet:javax.servlet-api'
-    implementation 'io.springfox:springfox-swagger2:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
     implementation 'jakarta.validation:jakarta.validation-api'
 
     implementation project(':commons:commons-util')

@@ -1,10 +1,14 @@
 package io.codehunters.commons.util.stream;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StreamUtil {
 
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {

@@ -1,8 +1,6 @@
 package io.codehunters.commons.integration.tasklet;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.StepContribution;
@@ -17,15 +15,17 @@ import java.nio.file.Paths;
 @Slf4j
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class FileDeleteTasklet implements Tasklet {
 
-    private String filePathParameter;
+    private final String filePathParameter;
+
+    public FileDeleteTasklet(String filePathParameter) {
+        this.filePathParameter = filePathParameter;
+    }
 
     @Override
     public RepeatStatus execute(StepContribution contribution,
-                                ChunkContext chunkContext) throws Exception {
+                                ChunkContext chunkContext) {
         log.info("DELETE FILE");
         try {
             Files.delete(Paths.get((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter)));
