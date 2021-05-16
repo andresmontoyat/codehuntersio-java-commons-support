@@ -17,10 +17,10 @@ public interface PaginationMapperJpa<D, E> extends DTOMapper<D, E> {
     int DEFAULT_PAGE_SIZE = 1000;
 
     default Pageable toPageRequest(PaginationQueryDTO paginationQuery) {
-        if (Optional.ofNullable(paginationQuery.getColumns()).isPresent()) {
+        if (Optional.ofNullable(paginationQuery.getSort()).isPresent()) {
             return PageRequest
                     .of(paginationQuery.getPage(), Math.min(DEFAULT_PAGE_SIZE, paginationQuery.getSize()),
-                            Sort.by(paginationQuery.getColumns()
+                            Sort.by(paginationQuery.getSort()
                                     .entrySet()
                                     .stream()
                                     .map(entrySet -> new Sort.Order(Sort.Direction.fromString(entrySet.getValue()), entrySet.getKey())).collect(Collectors.toList())));

@@ -18,7 +18,6 @@ include ':commons:commons-integration-tasklets-support'
 include ':commons:commons-totp-support'
 
 include ':repository:jpa-repository-audit-support'
-include ':repository:jpa-repository-cors-support'
 include ':repository:jpa-repository-country-support'
 include ':repository:jpa-repository-devicemetadata-support'
 include ':repository:jpa-repository-menu-ui-support'
@@ -28,7 +27,6 @@ include ':repository:jpa-repository-parameter-support'
 include ':repository:jpa-repository-template-support'
 
 include ':security:security-jwt-support'
-include ':security:security-cors-support'
 include 'commons:commons-util-mail'
 findProject(':commons:commons-util-mail')?.name = 'commons-util-mail'
 

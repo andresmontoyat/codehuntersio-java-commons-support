@@ -16,7 +16,6 @@ export default [
   'io.codehunters.commons.commons-integration-tasklets-support',
   'io.codehunters.commons.commons-totp-support',
   'io.codehunters.commons.jpa-repository-audit-support',
-  'io.codehunters.commons.jpa-repository-cors-support',
   'io.codehunters.commons.jpa-repository-country-support',
   'io.codehunters.commons.jpa-repository-devicemetadata-support',
   'io.codehunters.commons.jpa-repository-menu-ui-support',
@@ -24,6 +23,5 @@ export default [
   'io.codehunters.commons.jpa-repository-otp-support',
   'io.codehunters.commons.jpa-repository-parameter-support',
   'io.codehunters.commons.jpa-repository-template-support',
-  'io.codehunters.commons.security-jwt-support',
-  'io.codehunters.commons.security-cors-support'
+  'io.codehunters.commons.security-jwt-support'
 ]

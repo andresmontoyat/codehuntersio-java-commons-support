@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class CORSProperties {
+public class CorsProperties {
 
     private String path;
 
@@ -16,6 +16,8 @@ public class CORSProperties {
     private String origins;
 
     private String headers;
+
+    private String exposedHeaders;
 
     private String methods;
 
