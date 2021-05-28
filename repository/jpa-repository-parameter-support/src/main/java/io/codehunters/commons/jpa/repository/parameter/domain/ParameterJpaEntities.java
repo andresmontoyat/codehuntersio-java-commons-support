@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_parameters")
-public class ParameterEntities extends JpaEntities<Long> {
+public class ParameterJpaEntities extends JpaEntities<Long> {
 
     @Column(name = "commons_param_group", nullable = false, length = 80)
     private String group;
