@@ -1,7 +1,7 @@
 package io.codehunters.commons.jpa.repository.otp.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.ParamsJpaEntity;
+import io.codehunters.commons.jpa.repository.domain.UniqueIdJpaEntity;
 import io.codehunters.commons.jpa.repository.otp.domain.converter.ServiceTypeConverter;
 import io.codehunters.commons.jpa.repository.otp.domain.enums.OtpServiceType;
 import lombok.Data;
@@ -20,7 +20,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_otps")
-public class OtpJpaEntities extends ParamsJpaEntity<Long> {
+public class OtpJpaEntities extends UniqueIdJpaEntity<Long> {
 
     @Column(name = "commons_otp_code", nullable = false, length = 8)
     private String otp;

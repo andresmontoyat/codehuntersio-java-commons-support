@@ -1,7 +1,7 @@
 package io.codehunters.commons.jpa.repository.audit.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.ParamsJpaEntity;
+import io.codehunters.commons.jpa.repository.domain.JpaEntity;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -17,7 +17,7 @@ import java.util.Map;
 @Builder
 @Entity
 @Table(name = "commons_audit_log")
-public class AuditJpaEntities extends ParamsJpaEntity<Long> {
+public class AuditJpaEntity extends JpaEntity<Long> {
 
     @Column(name = "commons_audit_type", length = 80)
     private String type;

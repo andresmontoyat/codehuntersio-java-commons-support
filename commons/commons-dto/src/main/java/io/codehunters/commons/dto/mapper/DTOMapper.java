@@ -1,5 +1,7 @@
 package io.codehunters.commons.dto.mapper;
 
+import org.mapstruct.MappingTarget;
+
 import java.util.List;
 
 public interface DTOMapper<D, E> {
@@ -10,5 +12,5 @@ public interface DTOMapper<D, E> {
 
     E toEntity(D dto);
 
-    void toEntity(D dto, E entity);
+    void toEntity(D dto, @MappingTarget E entity);
 }

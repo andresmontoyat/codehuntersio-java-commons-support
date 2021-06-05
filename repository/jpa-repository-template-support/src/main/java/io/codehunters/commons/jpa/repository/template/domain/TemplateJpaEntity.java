@@ -1,7 +1,7 @@
 package io.codehunters.commons.jpa.repository.template.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.JpaEntities;
+import io.codehunters.commons.jpa.repository.domain.JpaEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_notif_templates")
-public class TemplateJpaEntities extends JpaEntities<Long> {
+public class TemplateJpaEntity extends JpaEntity<Long> {
 
     @Column(name = "commons_notif_templ_name", nullable = false, length = 80)
     private String name;

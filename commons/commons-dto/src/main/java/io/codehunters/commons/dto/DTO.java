@@ -5,13 +5,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import java.io.Serializable;
-
 @Getter
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public abstract class DTO<I extends Serializable> extends AuditableDTO {
+public abstract class DTO<I extends Number> extends AuditableDTO {
 
     protected I id;
 }

@@ -1,7 +1,7 @@
 package io.codehunters.commons.jpa.repository.parameter.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.JpaEntities;
+import io.codehunters.commons.jpa.repository.domain.JpaEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "commons_parameters")
-public class ParameterJpaEntities extends JpaEntities<Long> {
+public class ParameterJpaEntity extends JpaEntity<Long> {
 
     @Column(name = "commons_param_group", nullable = false, length = 80)
     private String group;

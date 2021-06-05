@@ -1,6 +1,7 @@
 package io.codehunters.commons.dto.pagination;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
+@SuperBuilder
 public class PaginationResultDTO<T> {
 
     private List<T> data;

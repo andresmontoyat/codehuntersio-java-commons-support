@@ -1,18 +1,18 @@
 package io.codehunters.commons.jpa.repository.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@SuperBuilder
 @MappedSuperclass
-public abstract class JpaEntities<I extends Serializable> extends AuditableJpaEntity implements Persistable<I> {
+public abstract class JpaEntity<I extends Number> extends AuditableJpaEntity implements Persistable<I> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

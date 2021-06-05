@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SuppressWarnings("unchecked")
-public interface PaginationMapperJpa<D, E> extends DTOMapper<D, E> {
+public interface JpaPaginationMapper<D, E> extends DTOMapper<D, E> {
 
     int DEFAULT_PAGE_SIZE = 1000;
 

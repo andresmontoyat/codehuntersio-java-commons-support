@@ -2,7 +2,7 @@ package io.codehunters.commons.jpa.repository.notification.domain;
 
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithListStringValueConverter;
 import io.codehunters.commons.jpa.repository.converter.MapStringKeyWithStringValueConverter;
-import io.codehunters.commons.jpa.repository.domain.ParamsJpaEntity;
+import io.codehunters.commons.jpa.repository.domain.UniqueIdJpaEntity;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -19,7 +19,7 @@ import java.util.Map;
 @Builder
 @Entity
 @Table(name = "commons_notifications")
-public class NotificationJpaEntities extends ParamsJpaEntity<Long> {
+public class NotificationJpaEntities extends UniqueIdJpaEntity<Long> {
 
     @Column(name = "commons_notif_type", length = 80)
     private String type;

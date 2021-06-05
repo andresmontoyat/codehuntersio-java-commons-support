@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @SuperBuilder
-public abstract class GeolocationDTO<I extends Serializable> extends DTO<I> {
+public abstract class GeolocationDTO<I extends Number> extends DTO<I> {
 
     protected Double latitude;
 

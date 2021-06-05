@@ -1,6 +1,6 @@
 package io.codehunters.commons.jpa.repository.parameter;
 
-import io.codehunters.commons.jpa.repository.parameter.domain.ParameterJpaEntities;
+import io.codehunters.commons.jpa.repository.parameter.domain.ParameterJpaEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,18 +10,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ParameterJpaRepository extends PagingAndSortingRepository<ParameterJpaEntities, Long> {
+public interface ParameterJpaRepository extends PagingAndSortingRepository<ParameterJpaEntity, Long> {
 
-    @Query("SELECT p FROM ParameterJpaEntities p WHERE p.code = :code")
-    Optional<ParameterJpaEntities> findByCodeEquals(@Param("code") String code);
+    @Query("SELECT p FROM ParameterJpaEntity p WHERE p.code = :code")
+    Optional<ParameterJpaEntity> findByCodeEquals(@Param("code") String code);
 
-    @Query("SELECT p FROM ParameterJpaEntities p WHERE p.parameter1 = :parameter1")
-    Optional<List<ParameterJpaEntities>> findAllByParameter1Equals(@Param("parameter1") String parameter1);
+    @Query("SELECT p FROM ParameterJpaEntity p WHERE p.parameter1 = :parameter1")
+    Optional<List<ParameterJpaEntity>> findAllByParameter1Equals(@Param("parameter1") String parameter1);
 
-    @Query("SELECT p FROM ParameterJpaEntities p WHERE p.parameter1 = :parameter1 AND p.parameter2 = :parameter2")
-    Optional<List<ParameterJpaEntities>> findAllByParameter1EqualsAndParameter2Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2);
+    @Query("SELECT p FROM ParameterJpaEntity p WHERE p.parameter1 = :parameter1 AND p.parameter2 = :parameter2")
+    Optional<List<ParameterJpaEntity>> findAllByParameter1EqualsAndParameter2Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2);
 
-    @Query("SELECT p FROM ParameterJpaEntities p WHERE p.parameter1 = :parameter1 AND p.parameter2 = :parameter2 AND p.parameter3 = :parameter3")
-    Optional<List<ParameterJpaEntities>> findAllByParameter1EqualsAndParameter2EqualsAndParameter3Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2, @Param("parameter3") String parameter3);
+    @Query("SELECT p FROM ParameterJpaEntity p WHERE p.parameter1 = :parameter1 AND p.parameter2 = :parameter2 AND p.parameter3 = :parameter3")
+    Optional<List<ParameterJpaEntity>> findAllByParameter1EqualsAndParameter2EqualsAndParameter3Equals(@Param("parameter1") String parameter1, @Param("parameter2") String parameter2, @Param("parameter3") String parameter3);
 
 }
