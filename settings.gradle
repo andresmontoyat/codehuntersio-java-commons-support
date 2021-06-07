@@ -18,13 +18,4 @@ include ':commons:commons-integration-batch-support'
 include ':commons:commons-integration-tasklets-support'
 include ':commons:commons-totp-support'
 
-include ':repository:jpa-repository-audit-support'
-include ':repository:jpa-repository-country-support'
-include ':repository:jpa-repository-devicemetadata-support'
-include ':repository:jpa-repository-menu-ui-support'
-include ':repository:jpa-repository-notification-support'
-include ':repository:jpa-repository-otp-support'
-include ':repository:jpa-repository-parameter-support'
-include ':repository:jpa-repository-template-support'
-
 include ':security:security-jwt-support'
