@@ -1,8 +1,8 @@
 pipeline {
-    agent any
-    triggers {
-        pollSCM '* * * * *'
+    agent {
+        docker { image 'codehunters/gradle-awseb' }
     }
+
     stages {
         stage('Build') {
             steps {
