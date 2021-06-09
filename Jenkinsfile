@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        docker {
-            image 'codehunters/gradle-awseb'
-        }
-    }
+   agent any
 
     stages {
+        agent {
+            docker {
+                image 'codehunters/gradle-awseb'
+            }
+        }
         stage('Code Analysis') {
             steps {
                //put your code scanner
