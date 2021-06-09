@@ -1,14 +1,15 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'codehunters/gradle-awseb'
+            reuseNode true
+        }
+    }
 
     stages {
 
         stage('Code Analysis') {
-            agent {
-                docker {
-                    image 'codehunters/gradle-awseb'
-                }
-            }
+
             steps {
                //put your code scanner
                 echo 'Run jacoco '
