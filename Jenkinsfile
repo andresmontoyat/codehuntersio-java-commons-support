@@ -1,16 +1,76 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'codehunters/gradle-awseb'
+        }
+    }
+
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:6.7-jdk11'
-                    // Run the container on the node specified at the top-level of the Pipeline, in the same workspace, rather than on a new node entirely:
-                    reuseNode true
+        stage('Code Analysis') {
+            steps {
+               //put your code scanner
+                echo 'Run jacoco '
+            }
+
+            steps {
+                //put your code scanner
+                echo 'Run sonarqube'
+            }
+        }
+
+        stage('Test') {
+            steps {
+               //put your code scanner
+                echo 'Run junit '
+            }
+
+            post{
+                success{
+                    echo "Robot Testing Successfully"
+                }
+                failure{
+                    echo "Robot Testing Failed"
                 }
             }
+        }
+
+        stage('Build') {
+
             steps {
-                sh 'gradle --version'
+                sh 'mvn -v'
+            }
+
+            steps {
+                sh 'Create docker image'
+            }
+
+            post{
+                success{
+                    echo "Build and Push Successfully"
+                }
+                failure{
+                    echo "Build and Push Failed"
+                }
+            }
+        }
+
+        stage('Deploy develop environment') {
+            when {
+                branch 'develop'
+            }
+
+            steps {
+                echo 'Develop'
+            }
+        }
+
+        stage('Deploy master environment') {
+            when {
+                branch 'master'
+            }
+
+            steps {
+                echo 'Master' wh
             }
         }
     }
