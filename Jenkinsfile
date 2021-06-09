@@ -64,7 +64,7 @@ pipeline {
             }
 
             steps {
-                echo 'Master' wh
+                echo 'Master'
             }
         }
     }
