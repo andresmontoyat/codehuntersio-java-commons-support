@@ -10,12 +10,9 @@ pipeline {
             steps {
                //put your code scanner
                 echo 'Run jacoco '
-            }
-
-            steps {
-                //put your code scanner
                 echo 'Run sonarqube'
             }
+
         }
 
         stage('Test') {
@@ -38,9 +35,6 @@ pipeline {
 
             steps {
                 sh 'mvn -v'
-            }
-
-            steps {
                 sh 'Create docker image'
             }
 
