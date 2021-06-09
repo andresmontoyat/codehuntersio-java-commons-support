@@ -46,6 +46,7 @@ pipeline {
                 }
                 failure{
                     echo "Build and Push Failed"
+                    sh "exit 1"
                     error ('Build is aborted due to failure of build stage')
                 }
             }
