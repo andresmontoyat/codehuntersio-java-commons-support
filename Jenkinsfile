@@ -1,75 +1,80 @@
 pipeline {
     agent any
-    stages {
 
-        stage('Code Analysis') {
-            agent {
-                docker {
-                    image 'codehunters/gradle-awseb'
-                    reuseNode true
+    try {
+        stages {
+
+            stage('Code Analysis') {
+                agent {
+                    docker {
+                        image 'codehunters/gradle-awseb'
+                        reuseNode true
+                    }
+                }
+                steps {
+                   //put your code scanner
+                    echo 'Run jacoco '
+                    echo 'Run sonarqube'
+                }
+
+            }
+
+            stage('Test') {
+                steps {
+                   //put your code scanner
+                    echo 'Run junit '
+                }
+
+                post{
+                    success{
+                        echo "Robot Testing Successfully"
+                    }
+                    failure{
+                        echo "Robot Testing Failed"
+                    }
                 }
             }
-            steps {
-               //put your code scanner
-                echo 'Run jacoco '
-                echo 'Run sonarqube'
-            }
 
-        }
+            stage('Build') {
 
-        stage('Test') {
-            steps {
-               //put your code scanner
-                echo 'Run junit '
-            }
-
-            post{
-                success{
-                    echo "Robot Testing Successfully"
+                steps {
+                    sh 'mvn -v'
+                    sh 'Create docker image'
                 }
-                failure{
-                    echo "Robot Testing Failed"
+
+                post{
+                    success{
+                        echo "Build and Push Successfully"
+                    }
+                    failure{
+                        echo "Build and Push Failed"
+                        error ('Build is aborted due to failure of build stage')
+                    }
                 }
             }
-        }
 
-        stage('Build') {
+            stage('Deploy develop environment') {
+                when {
+                    branch 'develop'
+                }
 
-            steps {
-                sh 'mvn -v'
-                sh 'Create docker image'
+                steps {
+                    echo 'Develop'
+                }
             }
 
-            post{
-                success{
-                    echo "Build and Push Successfully"
+            stage('Deploy master environment') {
+                when {
+                    branch 'master'
                 }
-                failure{
-                    echo "Build and Push Failed"
-                    sh "exit 1"
-                    error ('Build is aborted due to failure of build stage')
+
+                steps {
+                    echo 'Master'
                 }
             }
         }
-
-        stage('Deploy develop environment') {
-            when {
-                branch 'develop'
-            }
-
-            steps {
-                echo 'Develop'
-            }
-        }
-
-        stage('Deploy master environment') {
-            when {
-                branch 'master'
-            }
-
-            steps {
-                echo 'Master'
-            }
-        }
+    }
+    catch (exc) {
+        echo 'Something failed, I should sound the klaxons!'
     }
 }
