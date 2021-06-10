@@ -3,7 +3,7 @@
 
 name: Codehunters IO Java Commons Workflow
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
