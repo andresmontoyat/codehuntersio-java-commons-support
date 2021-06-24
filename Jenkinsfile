@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Code Analysis') {
             steps {
+                sh 'printenv'
                 sh 'gradle sonarqube'
             }
         }
