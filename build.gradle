@@ -11,7 +11,7 @@ allprojects {
 
     repositories {
         mavenLocal()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -21,8 +21,8 @@ subprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'jacoco'
 
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
 
     dependencies {
         implementation 'ch.qos.logback:logback-classic'
@@ -72,6 +72,22 @@ subprojects {
             property 'sonar.sources', 'src/main/java'
             property 'sonar.exclusions', '**/*Test*/**'
         }
+    }
+
+    jacocoTestCoverageVerification {
+        violationRules {
+            rule {
+                limit {
+                    counter = 'LINE'
+                    value = 'COVEREDRATIO'
+                    minimum = 1.0
+                }
+            }
+        }
+    }
+
+    test {
+        useJUnitPlatform()
     }
 
     tasks.withType(JavaCompile) {
