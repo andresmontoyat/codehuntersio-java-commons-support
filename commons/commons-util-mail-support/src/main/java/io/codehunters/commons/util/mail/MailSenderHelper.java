@@ -9,32 +9,28 @@ public class MailSenderHelper {
 
     private final JavaMailSenderImpl mailSender;
 
-    public MailSenderHelper(String host, int port, String username, String password) {
-        this(host, port, username, password, Boolean.TRUE, Boolean.FALSE, Boolean.FALSE, Boolean.TRUE);
-    }
-
-    public MailSenderHelper(String host, int port, String username, String password, boolean auth, boolean sslEnabled, boolean starttlsEnabled, boolean debug) {
+    public MailSenderHelper(MailProperties mailProperties) {
         mailSender = new JavaMailSenderImpl();
-        mailSender.setHost(host);
-        mailSender.setPort(port);
-        mailSender.setUsername(username);
-        mailSender.setPassword(password);
+        mailSender.setHost(mailProperties.getHost());
+        mailSender.setPort(mailProperties.getPort());
+        mailSender.setUsername(mailProperties.getUsername());
+        mailSender.setPassword(mailProperties.getPassword());
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", JavaMailSenderImpl.DEFAULT_PROTOCOL);
-        props.put("mail.smtp.auth", auth);
+        props.put("mail.smtp.auth", mailProperties.isAuth());
 
-        if (sslEnabled) {
-            props.put("mail.smtp.ssl.enable", sslEnabled);
+        if (mailProperties.isSslEnabled()) {
+            props.put("mail.smtp.ssl.enable", mailProperties.isSslEnabled());
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         }
 
-        if (starttlsEnabled) {
+        if (mailProperties.isStarttlsEnabled()) {
             props.put("mail.smtp.starttls.enable", "true");
             props.put("mail.smtp.starttls.required", "true");
         }
 
-        props.put("mail.debug", debug);
+        props.put("mail.debug", mailProperties.isDebug());
     }
 
     public void send(MimeMessagePreparator mimeMessagePreparator) {
