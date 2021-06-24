@@ -27,7 +27,7 @@ public class FileUtil {
             return Base64.getEncoder().encodeToString(fileContent);
         }
 
-        public static String encodeToString(byte[] image) throws IOException {
+        public static String encodeToString(byte[] image){
             return Base64.getEncoder().encodeToString(image);
         }
 
@@ -37,7 +37,7 @@ public class FileUtil {
             return file;
         }
 
-        public static byte[] decodeToFile(String encodeImage) throws IOException {
+        public static byte[] decodeToFile(String encodeImage) {
             return Base64.getDecoder().decode(encodeImage);
         }
     }

@@ -1,22 +1,24 @@
 pipeline {
     agent {
         docker {
-            image 'codehunters/gradle-awseb'
+            image 'codehunters/gradle-awseb:jdk11'
         }
     }
 
     stages {
-        stage('Code Analysis') {
+        stage('Cleanup Workspace') {
             steps {
-                sh 'printenv'
-                sh 'gradle sonarqube'
+                cleanWs()
+                echo 'Cleaned Up Workspace'
             }
         }
 
-        stage('Build') {
+        stage('Code Analysis') {
             steps {
-                sh 'gradle clean build'
+                sh 'printenv'
+                sh 'gradle clean build sonarqube'
             }
         }
+
     }
 }
