@@ -23,4 +23,6 @@ public class MailProperties {
     private boolean starttlsEnabled;
 
     private boolean debug;
+
+    private boolean checkServerIdentity;
 }
