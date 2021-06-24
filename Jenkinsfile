@@ -6,12 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Cleanup Workspace') {
-            steps {
-                cleanWs()
-                echo 'Cleaned Up Workspace'
-            }
-        }
 
         stage('Code Analysis') {
             steps {
@@ -20,5 +14,10 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'gradle test'
+            }
+        }
     }
 }
