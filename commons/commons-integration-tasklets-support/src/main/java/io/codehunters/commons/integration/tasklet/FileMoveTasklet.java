@@ -33,11 +33,13 @@ public class FileMoveTasklet implements Tasklet {
     public RepeatStatus execute(StepContribution contribution,
                                 ChunkContext chunkContext) {
         log.info("MOVE FILE");
-        File file = new File((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter));
+        String filePath = (String) chunkContext.getStepContext().getJobParameters().get(filePathParameter);
+        File file = new File(filePath);
         try {
             Files.move(Paths.get(file.toURI()), Paths.get(URI.create("file://" + (newFilePath + "/" + file.getName()).replaceAll("\\s", "%20"))), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
-            throw new UnexpectedJobExecutionException("Could not move file");
+            log.error("An error has occurred trying to move the file {}", filePath);
+            throw new UnexpectedJobExecutionException("Could not move file", e);
         }
 
         return RepeatStatus.FINISHED;
