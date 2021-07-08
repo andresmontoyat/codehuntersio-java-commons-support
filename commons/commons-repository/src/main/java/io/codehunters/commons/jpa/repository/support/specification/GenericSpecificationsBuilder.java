@@ -6,6 +6,7 @@ import io.codehunters.commons.util.Util;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GenericSpecificationsBuilder<T> {
@@ -19,8 +20,16 @@ public class GenericSpecificationsBuilder<T> {
         this.specifications = new ArrayList<>();
     }
 
+    public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final Object value) {
+        return with(attribute, operation, Boolean.FALSE, Arrays.asList(value));
+    }
+
     public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final List<Object> values) {
         return with(attribute, operation, Boolean.FALSE, values);
+    }
+
+    public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final boolean isOr, final Object value) {
+        return with(attribute, operation, isOr, Arrays.asList(value));
     }
 
     public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final boolean isOr, final List<Object> values) {
@@ -53,11 +62,12 @@ public class GenericSpecificationsBuilder<T> {
         }
 
         if (!Util.isNull(specifications)) {
+            int i = 0;
             if (root == null) {
-                root = specifications.get(0);
+                root = specifications.get(++i);
             }
 
-            for (int i = 1; i < specifications.size(); i++) {
+            for (; i < specifications.size(); i++) {
                 root = Specification.where(root).and(specifications.get(i));
             }
         }
