@@ -27,9 +27,11 @@ public class FileDeleteTasklet implements Tasklet {
     public RepeatStatus execute(StepContribution contribution,
                                 ChunkContext chunkContext) {
         log.info("DELETE FILE");
+        String filePath = (String) chunkContext.getStepContext().getJobParameters().get(filePathParameter);
         try {
-            Files.delete(Paths.get((String) chunkContext.getStepContext().getJobParameters().get(filePathParameter)));
+            Files.delete(Paths.get(filePath));
         } catch (Exception e) {
+            log.error("An error has occurred trying to delete the file {}", filePath);
             throw new UnexpectedJobExecutionException("Could not delete file");
         }
         return RepeatStatus.FINISHED;
