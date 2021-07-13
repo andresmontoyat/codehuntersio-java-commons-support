@@ -9,8 +9,19 @@ pipeline {
 
         stage('Code Analysis') {
             steps {
-                sh 'printenv'
-                sh 'gradle clean build sonarqube'
+                withSonarQubeEnv('SonarQube') {
+                    sh 'printenv'
+                    sh 'gradle clean build sonarqube'
+                }
+            }
+
+            post{
+                success {
+                    echo('The build were executed successfully')
+                }
+                failure {
+                    error('The build failed')
+                }
             }
         }
 
