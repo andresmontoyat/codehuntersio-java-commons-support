@@ -25,13 +25,15 @@ jobs:
           distribution: 'adopt'
           java-version: 11
       - name: Cache SonarQube
-          uses: actions/cache@v2
-          with:
-            path: |
-              ~/.sonar/cache
-              ~/.gradle/caches
-            key: ${{ runner.os }}-sonar
-            restore-keys: ${{ runner.os }}-sonar
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.sonar/cache
+            ~/.gradle/caches
+          key: |
+            ${{ runner.os }}-sonar
+            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-sonar
       - name: Build and Analyze
         run: gradle --build-cache build sonarqube -x test
       - name: Publish to gitHub packages
