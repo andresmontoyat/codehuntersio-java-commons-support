@@ -1,6 +1,6 @@
 plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'org.sonarqube' version '3.0'
+    id 'org.sonarqube' version '3.3'
     id 'maven-publish'
     id 'jacoco'
     id 'java'
@@ -31,13 +31,11 @@ subprojects {
         implementation 'org.springframework:spring-context'
         implementation 'org.springframework:spring-core'
         implementation 'org.springframework:spring-context-support'
-        implementation 'joda-time:joda-time:2.10.5'
         implementation 'org.projectlombok:lombok:1.18.20'
         implementation 'org.mapstruct:mapstruct:1.4.2.Final'
 
         annotationProcessor 'org.projectlombok:lombok:1.18.20'
         annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
-
         testImplementation 'junit:junit'
     }
 
@@ -94,14 +92,6 @@ subprojects {
         options.encoding = 'UTF-8'
     }
 
-
-}
-
-if (hasProperty('buildScan')) {
-    buildScan {
-        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-        termsOfServiceAgree = 'yes'
-    }
 }
 
 task version() {
