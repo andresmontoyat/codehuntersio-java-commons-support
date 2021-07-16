@@ -56,8 +56,8 @@ public class GenericSpecificationsBuilder<T> {
             for (int i = 1; i < params.size(); i++) {
                 SearchCriteria criteria = params.get(i);
                 root = criteria.isOr()
-                        ? Specification.where(root).or(new GenericSpecification<T>(criteria))
-                        : Specification.where(root).and(new GenericSpecification<T>(criteria));
+                        ? Specification.where(root).or(new GenericSpecification<>(criteria))
+                        : Specification.where(root).and(new GenericSpecification<>(criteria));
             }
         }
 
