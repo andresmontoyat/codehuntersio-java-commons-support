@@ -1,9 +1,9 @@
 # This workflow will build a package using Gradle and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java#publishing-using-gradle
 
-name: Codehunters IO Commons Workflow
+name: Codehunters IO Java Commons Workflow
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -12,12 +12,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup JDK 1.8
-        uses: actions/setup-java@v1.3.0
+      - name: Clean packages
+        uses: ./.github/actions/packages
         with:
-          java-version: 1.8
-      - name: Build with gradle
-        run: gradle --build-cache build -x test
+          token: ${{ secrets.GH_PACKAGES_TOKEN }}
+          owner: ${{ github.actor }}
+          repository: codehuntersio-java-commons-support
+          versions: 2
+      - name: Setup JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+      - name: Cache SonarQube
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.sonar/cache
+            ~/.gradle/caches
+          key: |
+            ${{ runner.os }}-sonar
+            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+          restore-keys: ${{ runner.os }}-sonar
+      - name: Build and Analyze
+        run: gradle --build-cache build sonarqube -x test
       - name: Publish to gitHub packages
         run: gradle publish
         env:

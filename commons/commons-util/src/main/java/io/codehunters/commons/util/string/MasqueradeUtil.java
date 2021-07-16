@@ -1,7 +1,10 @@
 package io.codehunters.commons.util.string;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MasqueradeUtil {
 
     public static final String DEFAULT_WILDCARD = "*";
@@ -34,7 +37,8 @@ public class MasqueradeUtil {
                 String startToken = text.substring(0, extractStartIndex);
                 String endToken = text.substring(extractEndIndex);
                 return StringUtils.rightPad(startToken, (text.substring(0, extractEndIndex).length()), wildcard).concat(endToken);
+            default:
+                return null;
         }
-        return null;
     }
 }

@@ -3,9 +3,9 @@ export default [
   'io.codehunters.commons.commons-util-barcode-support',
   'io.codehunters.commons.commons-util-ip-support',
   'io.codehunters.commons.commons-util-device-support',
-  'io.codehunters.commons.commons-util-hashids-support',
   'io.codehunters.commons.commons-util-jasperreport-support',
   'io.codehunters.commons.commons-util-template-mustache-support',
+  'io.codehunters.commons.commons-util-mail-support',
   'io.codehunters.commons.commons-properties',
   'io.codehunters.commons.commons-remote-properties',
   'io.codehunters.commons.commons-dto',
@@ -15,8 +15,8 @@ export default [
   'io.codehunters.commons.commons-web',
   'io.codehunters.commons.commons-integration-batch-support',
   'io.codehunters.commons.commons-integration-tasklets-support',
+  'io.codehunters.commons.commons-totp-support',
   'io.codehunters.commons.jpa-repository-audit-support',
-  'io.codehunters.commons.jpa-repository-cors-support',
   'io.codehunters.commons.jpa-repository-country-support',
   'io.codehunters.commons.jpa-repository-devicemetadata-support',
   'io.codehunters.commons.jpa-repository-menu-ui-support',
@@ -24,7 +24,5 @@ export default [
   'io.codehunters.commons.jpa-repository-otp-support',
   'io.codehunters.commons.jpa-repository-parameter-support',
   'io.codehunters.commons.jpa-repository-template-support',
-  'io.codehunters.commons.security-totp-support',
-  'io.codehunters.commons.security-jwt-support',
-  'io.codehunters.commons.security-cors-support'
+  'io.codehunters.commons.security-jwt-support'
 ]

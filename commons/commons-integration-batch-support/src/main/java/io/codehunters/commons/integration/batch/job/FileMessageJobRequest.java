@@ -15,9 +15,13 @@ import java.util.Date;
 @Setter
 public class FileMessageJobRequest {
 
-    private Job job;
+    public static final String JOB_PARAM_FILE_NAME = "fileName";
+    public static final String JOB_PARAM = "job_param";
+    public static final String JOB_PARAM_CURRENT_DATE = "currentDate";
 
-    private String parameterName;
+    protected final Job job;
+
+    protected final String parameterName;
 
     public FileMessageJobRequest(Job job, String parameterName) {
         this.job = job;
@@ -27,8 +31,9 @@ public class FileMessageJobRequest {
     @Transformer
     public JobLaunchRequest toRequest(Message<File> message) {
         JobParametersBuilder jobParametersBuilder = new JobParametersBuilder();
-        jobParametersBuilder.addString(parameterName, message.getPayload().getAbsolutePath());
-        jobParametersBuilder.addDate("currentDate", new Date());
+        jobParametersBuilder.addString((parameterName == null) ? JOB_PARAM : parameterName, message.getPayload().getAbsolutePath());
+        jobParametersBuilder.addString(JOB_PARAM_FILE_NAME, message.getPayload().getName());
+        jobParametersBuilder.addDate(JOB_PARAM_CURRENT_DATE, new Date());
         return new JobLaunchRequest(job, jobParametersBuilder.toJobParameters());
     }
 

@@ -1,15 +1,15 @@
 package io.codehunters.commons.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public abstract class DTO<ID> extends AuditableDTO {
+@SuperBuilder
+public abstract class DTO<I extends Number> extends AuditableDTO {
 
-    protected ID id;
-
-    public abstract <T extends DTO> T withId(ID id);
+    protected I id;
 }

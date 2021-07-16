@@ -1,6 +1,8 @@
 package io.codehunters.commons.util.date;
 
 import io.codehunters.commons.util.Util;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DateUtil {
 
     public static final String FORMAT = "yyyy-MM-dd";
@@ -17,7 +20,6 @@ public class DateUtil {
     public static final String HOUR = "HH:mm:ss";
     public static final String HOUR_START = "00:00:00";
     public static final String HOUR_END = "23:59:59";
-
     public static final String YEAR = "yyyy";
     public static final String MONTH = "MM";
     public static final String DAY = "dd";
@@ -27,11 +29,11 @@ public class DateUtil {
         return new SimpleDateFormat(format);
     }
 
-    public static String format(DateFormat dateFormat, Date date) {
+    public static String getFormat(DateFormat dateFormat, Date date) {
         return dateFormat.format(date);
     }
 
-    public static Date parse(DateFormat dateFormat, String date) {
+    public static Date getParse(DateFormat dateFormat, String date) {
         try {
             return dateFormat.parse(date);
         } catch (ParseException e) {
@@ -49,7 +51,7 @@ public class DateUtil {
 
     public static Date getDate(String format, String date) {
         if (!Util.isNull(date))
-            return parse(getDateFormat(format), date);
+            return getParse(getDateFormat(format), date);
         return null;
     }
 
@@ -57,7 +59,7 @@ public class DateUtil {
         DateFormat dateFormat = getDateFormat(format);
 
         try {
-            return dateFormat.parse(format(dateFormat, new Date(time)));
+            return dateFormat.parse(getFormat(dateFormat, new Date(time)));
         } catch (ParseException e) {
             return null;
         }
@@ -66,7 +68,7 @@ public class DateUtil {
     public static Date getDate(String format, Date date) {
         if (!Util.isNull(date)) {
             DateFormat dateFormat = getDateFormat(format);
-            return parse(dateFormat, format(dateFormat, date));
+            return getParse(dateFormat, getFormat(dateFormat, date));
         }
 
         return null;
@@ -83,14 +85,14 @@ public class DateUtil {
     public static String getDateToString(String format, String date) {
         if (!Util.isNull(date)) {
             DateFormat dateFormat = getDateFormat(format);
-            return getDateToString(format, parse(dateFormat, date));
+            return getDateToString(format, getParse(dateFormat, date));
         }
         return null;
     }
 
     public static String getDateToString(String format, Date date) {
         if (!Util.isNull(date)) {
-            return format(getDateFormat(format), date);
+            return getFormat(getDateFormat(format), date);
         }
 
         return null;

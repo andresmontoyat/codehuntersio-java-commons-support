@@ -1,7 +1,11 @@
 package io.codehunters.commons.util.date;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PrettyDate {
 
     public static String pretty(Date date) {
@@ -27,6 +31,6 @@ public class PrettyDate {
     }
 
     public static double subtractDateToSeconds(Date date1, Date date2) {
-        return (date1.getTime() - date2.getTime()) / 1000;
+        return (double) (date1.getTime() - date2.getTime()) / 1000f;
     }
 }

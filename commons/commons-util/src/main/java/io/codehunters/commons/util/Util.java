@@ -1,8 +1,12 @@
 package io.codehunters.commons.util;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Optional;
 import java.util.UUID;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Util {
 
     public static boolean isNull(Object object) {
@@ -21,7 +25,7 @@ public class Util {
     }
 
     public static String uuid(String prefix) {
-        return prefix + UUID.randomUUID().toString();
+        return prefix + uuid();
     }
 
 }

@@ -1,5 +1,7 @@
 package io.codehunters.commons.util.jasperreport;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
@@ -10,7 +12,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JasperManagerUtil {
 
     public static byte[] fill(InputStream report, Map<String, Object> params) throws JRException {
@@ -26,7 +30,7 @@ public class JasperManagerUtil {
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, params, dataSource);
 
         JRPdfExporter exporter = new JRPdfExporter();
-        if(pdfExporterConfiguration != null) {
+        if (Optional.ofNullable(pdfExporterConfiguration).isPresent()) {
             exporter.setConfiguration(pdfExporterConfiguration);
         }
 

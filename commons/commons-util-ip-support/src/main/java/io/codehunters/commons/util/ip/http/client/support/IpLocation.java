@@ -6,13 +6,15 @@ import lombok.*;
 /**
  * visit to https://ipapi.co/#api for more information
  */
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class IpLocation {
 
-    public static String IP_API_STATUS_SUCCESS = "success";
-    public static String IP_API_STATUS_FAILURE = "fail";
+    public static final String IP_API_STATUS_SUCCESS = "success";
+    public static final String IP_API_STATUS_FAILURE = "fail";
     public static final String LOCATION_UNKNOWN = "UNKNOWN";
 
     @JsonProperty("query")

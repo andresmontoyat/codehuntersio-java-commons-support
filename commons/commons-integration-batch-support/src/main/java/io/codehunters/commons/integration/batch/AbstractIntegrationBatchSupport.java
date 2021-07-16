@@ -1,46 +1,52 @@
 package io.codehunters.commons.integration.batch;
 
 import io.codehunters.commons.integration.batch.job.FileMessageJobRequest;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.integration.launch.JobLaunchingMessageHandler;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.file.FileReadingMessageSource;
 import org.springframework.integration.file.filters.SimplePatternFileListFilter;
 
 import java.io.File;
 
+@Getter
+@Setter
 public abstract class AbstractIntegrationBatchSupport {
 
     public static final String DEFAULT_FILE_PATH_PARAM = "file_path";
 
-    @Autowired
-    protected JobLauncher jobLauncher;
+    protected final JobLauncher jobLauncher;
 
-    @Autowired
-    protected JobBuilderFactory jobBuilderFactory;
+    protected final JobBuilderFactory jobBuilderFactory;
 
-    @Autowired
-    protected StepBuilderFactory stepBuilderFactory;
+    protected final StepBuilderFactory stepBuilderFactory;
 
-    private String filePathParam;
+    protected String filePathParam;
 
-    public AbstractIntegrationBatchSupport() {
+    protected AbstractIntegrationBatchSupport(JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+        this.jobLauncher = jobLauncher;
+        this.jobBuilderFactory = jobBuilderFactory;
+        this.stepBuilderFactory = stepBuilderFactory;
         this.filePathParam = DEFAULT_FILE_PATH_PARAM;
     }
 
-    public AbstractIntegrationBatchSupport(String filePathParam) {
+    protected AbstractIntegrationBatchSupport(String filePathParam, JobLauncher jobLauncher, JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+        this.jobLauncher = jobLauncher;
+        this.jobBuilderFactory = jobBuilderFactory;
+        this.stepBuilderFactory = stepBuilderFactory;
         this.filePathParam = filePathParam;
     }
 
-    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, FileReadingMessageSource.WatchEventType...events) {
+    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, FileReadingMessageSource.WatchEventType... events) {
         return fileReadingMessageSource(directory, filter, Boolean.TRUE, Boolean.TRUE, events);
     }
 
-    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, Boolean useWatchService, Boolean autoCreateDirectory, FileReadingMessageSource.WatchEventType...events) {
+    protected MessageSource<File> fileReadingMessageSource(String directory, String filter, Boolean useWatchService, Boolean autoCreateDirectory, FileReadingMessageSource.WatchEventType... events) {
         FileReadingMessageSource source = new FileReadingMessageSource();
         source.setDirectory(new File(directory));
         source.setFilter(new SimplePatternFileListFilter(filter));
@@ -55,7 +61,7 @@ public abstract class AbstractIntegrationBatchSupport {
     }
 
     protected FileMessageJobRequest fileMessageJobRequest(Job job) {
-        return new FileMessageJobRequest(job,  filePathParam);
+        return new FileMessageJobRequest(job, filePathParam);
     }
 
 }

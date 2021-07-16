@@ -1,7 +1,6 @@
 package io.codehunters.commons.remote.properties;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -20,7 +19,9 @@ import java.util.Properties;
 
 @SuppressWarnings("unchecked")
 @Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
 
     private RequestEntity requestEntity;
@@ -29,15 +30,9 @@ public class RemoteProperties extends PropertySourcesPlaceholderConfigurer {
 
     private String propertyValue;
 
-    public RemoteProperties(RequestEntity requestEntity, String propertyKey, String propertyValue) {
-        this.requestEntity = requestEntity;
-        this.propertyKey = propertyKey;
-        this.propertyValue = propertyValue;
-    }
-
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        final Map properties = new Properties();
+        Map properties = new Properties();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List> response = restTemplate.exchange(requestEntity, List.class);

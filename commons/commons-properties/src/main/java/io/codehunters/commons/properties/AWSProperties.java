@@ -2,9 +2,11 @@ package io.codehunters.commons.properties;
 
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class AWSProperties {
 
     private String accessKey;

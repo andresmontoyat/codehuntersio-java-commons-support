@@ -1,15 +1,17 @@
 package io.codehunters.commons.properties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.List;
+
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class WebSecurityProperties {
 
-    private String ignore;
+    private List<String> ignore;
 
-    private String secure;
+    private List<String> secure;
 }

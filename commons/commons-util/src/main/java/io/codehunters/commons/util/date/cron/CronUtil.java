@@ -1,9 +1,13 @@
 package io.codehunters.commons.util.date.cron;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CronUtil {
 
     public static String convertDateToCronExpression(Date date) {
@@ -19,5 +23,4 @@ public class CronUtil {
 
         return String.format("%d %d %d %d %d ? %d", seconds, minute, hour, day, month, year);
     }
-
 }

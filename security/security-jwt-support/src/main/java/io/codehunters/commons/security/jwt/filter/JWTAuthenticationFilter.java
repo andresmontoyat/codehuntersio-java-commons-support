@@ -1,6 +1,6 @@
 package io.codehunters.commons.security.jwt.filter;
 
-import io.codehunters.commons.security.jwt.provider.JWTProvider;
+import io.codehunters.commons.security.jwt.provider.JwtProvider;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -28,11 +28,11 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
 
     private Set<String> blackList = new TreeSet<>();
 
-    public final static String AUTHORIZATION_HEADER = "Authorization";
+    public  static final String AUTHORIZATION_HEADER = "Authorization";
 
-    private JWTProvider jwtProvider;
+    private JwtProvider jwtProvider;
 
-    public JWTAuthenticationFilter(JWTProvider jwtProvider) {
+    public JWTAuthenticationFilter(JwtProvider jwtProvider) {
         this.jwtProvider = jwtProvider;
     }
 
@@ -59,7 +59,6 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
             }
 
             if (jwt != null && blackList.contains(jwt)) {
-                jwt = null;
                 response.sendError(403);
                 return;
             }

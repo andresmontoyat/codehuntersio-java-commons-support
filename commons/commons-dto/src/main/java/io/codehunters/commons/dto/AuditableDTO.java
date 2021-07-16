@@ -1,14 +1,16 @@
 package io.codehunters.commons.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@SuperBuilder
 public abstract class AuditableDTO {
 
     protected String createdBy;
@@ -18,6 +20,4 @@ public abstract class AuditableDTO {
     protected String modifiedBy;
 
     protected Date lastModifiedDate;
-
-    protected Long version;
 }

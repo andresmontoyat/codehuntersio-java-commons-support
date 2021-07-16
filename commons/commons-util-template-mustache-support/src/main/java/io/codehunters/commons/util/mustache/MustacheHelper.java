@@ -12,7 +12,7 @@ import java.io.*;
 @Setter
 public class MustacheHelper {
 
-    private MustacheFactory mustacheFactory;
+    private final MustacheFactory mustacheFactory;
 
     public MustacheHelper(MustacheFactory mustacheFactory) {
         this.mustacheFactory = mustacheFactory;

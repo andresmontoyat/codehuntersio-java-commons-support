@@ -2,9 +2,11 @@ package io.codehunters.commons.properties;
 
 import lombok.*;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 public class CORSProperties {
 
     private String path;
@@ -14,6 +16,8 @@ public class CORSProperties {
     private String origins;
 
     private String headers;
+
+    private String exposedHeaders;
 
     private String methods;
 
