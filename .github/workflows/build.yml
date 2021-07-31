@@ -2,8 +2,10 @@
 # For more information see: https://github.com/actions/setup-java#publishing-using-gradle
 
 name: Codehunters IO Java Commons Workflow
-
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:

@@ -7,7 +7,13 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class MailProperties {
+public class SMTPProperties {
+
+    private String fromDisplayName;
+
+    private String from;
+
+    private String replyTo;
 
     private String host;
 
@@ -16,6 +22,7 @@ public class MailProperties {
     private String username;
 
     private String password;
+
     private boolean auth;
 
     private boolean sslEnabled;
@@ -23,4 +30,6 @@ public class MailProperties {
     private boolean starttlsEnabled;
 
     private boolean debug;
+
+    private boolean checkServerIdentity;
 }

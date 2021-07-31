@@ -6,4 +6,5 @@ jar.enabled = true
 
 dependencies {
     implementation 'javax.mail:mail:1.4.7'
+    implementation project(':commons:commons-properties')
 }

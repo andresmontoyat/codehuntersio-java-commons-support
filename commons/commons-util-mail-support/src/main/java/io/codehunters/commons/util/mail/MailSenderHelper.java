@@ -1,5 +1,6 @@
 package io.codehunters.commons.util.mail;
 
+import io.codehunters.commons.properties.SMTPProperties;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
@@ -7,31 +8,35 @@ import java.util.Properties;
 
 public class MailSenderHelper {
 
-    private final JavaMailSenderImpl mailSender;
+    protected final JavaMailSenderImpl mailSender;
 
-    public MailSenderHelper(MailProperties mailProperties) {
+    protected final SMTPProperties smtpProperties;
+
+    public MailSenderHelper(SMTPProperties smtpProperties) {
+        this.smtpProperties = smtpProperties;
+
         mailSender = new JavaMailSenderImpl();
-        mailSender.setHost(mailProperties.getHost());
-        mailSender.setPort(mailProperties.getPort());
-        mailSender.setUsername(mailProperties.getUsername());
-        mailSender.setPassword(mailProperties.getPassword());
+        mailSender.setHost(smtpProperties.getHost());
+        mailSender.setPort(smtpProperties.getPort());
+        mailSender.setUsername(smtpProperties.getUsername());
+        mailSender.setPassword(smtpProperties.getPassword());
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", JavaMailSenderImpl.DEFAULT_PROTOCOL);
-        props.put("mail.smtp.auth", mailProperties.isAuth());
+        props.put("mail.smtp.auth", smtpProperties.isAuth());
 
-        if (mailProperties.isSslEnabled()) {
-            props.put("mail.smtp.ssl.enable", mailProperties.isSslEnabled());
+        if (smtpProperties.isSslEnabled()) {
+            props.put("mail.smtp.ssl.enable", smtpProperties.isSslEnabled());
             props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-            props.put("mail.smtp.ssl.checkserveridentity", mailProperties.isCheckServerIdentity());
+            props.put("mail.smtp.ssl.checkserveridentity", smtpProperties.isCheckServerIdentity());
         }
 
-        if (mailProperties.isStarttlsEnabled()) {
+        if (smtpProperties.isStarttlsEnabled()) {
             props.put("mail.smtp.starttls.enable", "true");
             props.put("mail.smtp.starttls.required", "true");
         }
 
-        props.put("mail.debug", mailProperties.isDebug());
+        props.put("mail.debug", smtpProperties.isDebug());
     }
 
     public void send(MimeMessagePreparator mimeMessagePreparator) {
