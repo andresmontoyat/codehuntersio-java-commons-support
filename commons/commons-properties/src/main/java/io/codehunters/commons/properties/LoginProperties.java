@@ -7,17 +7,17 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class TokenProperties {
+public class LoginProperties {
 
     @Builder.Default
-    private boolean supportRefreshToken = false;
+    private String loginPage = "/login";
 
     @Builder.Default
-    private long accessTokenValiditySeconds = 60;
+    private String username = "username";
 
     @Builder.Default
-    private long refreshTokenValiditySeconds = 60;
+    private String password = "password";
 
     @Builder.Default
-    private boolean reuseRefreshToken = false;
+    private String loginProcessingUrl = "/perform_login";
 }

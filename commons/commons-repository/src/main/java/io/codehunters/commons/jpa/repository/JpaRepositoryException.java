@@ -4,6 +4,8 @@ import io.codehunters.commons.util.ex.ErrorException;
 
 public class JpaRepositoryException extends ErrorException {
 
+    public static final String DEFAULT_REPOSITORY_ERROR_MESSAGE = "An error has occurred trying to access database.";
+
     public JpaRepositoryException(String message, String code) {
         super(message, code);
     }

@@ -9,17 +9,23 @@ import lombok.*;
 @Builder
 public class CORSProperties {
 
-    private String path;
+    @Builder.Default
+    private String path = "/**";
 
-    private Boolean allowCredentials;
+    @Builder.Default
+    private Boolean allowCredentials = false;
 
-    private String origins;
+    @Builder.Default
+    private String origins = "*";
 
-    private String headers;
+    @Builder.Default
+    private String headers = "*";
 
     private String exposedHeaders;
 
-    private String methods;
+    @Builder.Default
+    private String methods = "GET,POST";
 
-    private String maxAge;
+    @Builder.Default
+    private Integer maxAge = 3600;
 }
