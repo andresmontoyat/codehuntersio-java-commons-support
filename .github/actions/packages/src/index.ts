@@ -1,10 +1,6 @@
 import {getInput, setFailed} from '@actions/core'
 import {Observable, throwError} from 'rxjs'
-import {
-  deletePackagesVersions,
-  searchPackagesVersions,
-  SearchPackageVersionRequest
-} from './packageService'
+import {deletePackagesVersions, searchPackagesVersions, SearchPackageVersionRequest} from './packageService'
 import {concatMap} from 'rxjs/operators'
 import packages from './packages'
 

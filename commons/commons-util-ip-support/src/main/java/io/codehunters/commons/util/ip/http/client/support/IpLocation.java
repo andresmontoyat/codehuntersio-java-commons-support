@@ -1,7 +1,12 @@
 package io.codehunters.commons.util.ip.http.client.support;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * visit to https://ipapi.co/#api for more information

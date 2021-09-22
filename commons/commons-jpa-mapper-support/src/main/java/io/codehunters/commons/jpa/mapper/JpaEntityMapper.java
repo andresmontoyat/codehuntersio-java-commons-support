@@ -4,7 +4,11 @@ import io.codehunters.commons.dto.DTO;
 import io.codehunters.commons.jpa.repository.domain.JpaEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.NullValueCheckStrategy;
+import org.mapstruct.ObjectFactory;
+import org.mapstruct.ReportingPolicy;
+import org.mapstruct.TargetType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

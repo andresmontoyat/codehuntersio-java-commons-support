@@ -1,10 +1,5 @@
-import {
-  deletePackagesVersions,
-  searchPackagesVersions,
-  SearchPackageVersionRequest
-} from '../src/packageService'
+import {deletePackagesVersions, searchPackagesVersions, SearchPackageVersionRequest} from '../src/packageService'
 import packages from '../src/packages'
-import {tap} from 'rxjs/operators'
 
 describe('Package Operation Service', () => {
   it('Search versions', done => {

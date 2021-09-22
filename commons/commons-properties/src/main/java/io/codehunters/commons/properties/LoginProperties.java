@@ -1,6 +1,11 @@
 package io.codehunters.commons.properties;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -20,4 +25,7 @@ public class LoginProperties {
 
     @Builder.Default
     private String loginProcessingUrl = "/perform_login";
+
+    @Builder.Default
+    private int sessionAttempts = 3;
 }

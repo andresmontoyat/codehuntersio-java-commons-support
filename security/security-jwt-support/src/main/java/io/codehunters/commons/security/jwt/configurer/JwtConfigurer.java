@@ -2,7 +2,12 @@ package io.codehunters.commons.security.jwt.configurer;
 
 import io.codehunters.commons.security.jwt.filter.JWTAuthenticationFilter;
 import io.codehunters.commons.security.jwt.provider.JwtProvider;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
