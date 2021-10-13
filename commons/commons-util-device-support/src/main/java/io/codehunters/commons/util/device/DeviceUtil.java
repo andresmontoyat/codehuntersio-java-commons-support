@@ -19,31 +19,38 @@ public class DeviceUtil {
     public static final String HEADER_USER_AGENT = "User-Agent";
 
     public static Device device(HttpServletRequest request) {
-        Device device = new Device();
+        return device(request, Boolean.FALSE);
+    }
 
-        IpLocation ipLocation = IpUtil.extractLocation(request);
-        device.setIp(ipLocation.getIp());
+    public static Device device(HttpServletRequest request, Boolean useLocation) {
+        Device device = Device.builder()
+                .ip(IpUtil.extractIp(request))
+                .build();
 
-        if(IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
-            device.setLocation(ipLocation.getCity());
-            device
-                    .addAdditionalInfo("continent", ipLocation.getContinent())
-                    .addAdditionalInfo("region", ipLocation.getRegion())
-                    .addAdditionalInfo("country", ipLocation.getCountry())
-                    .addAdditionalInfo("countryCode", ipLocation.getCountryCode())
-                    .addAdditionalInfo("timezone", ipLocation.getTimezone())
-                    .addAdditionalInfo("isp", ipLocation.getIspName())
-                    .addAdditionalInfo("org", ipLocation.getOrganization())
-                    .addAdditionalInfo("reverse", ipLocation.getReverse())
-                    .addAdditionalInfo("mobile", ipLocation.getMobile())
-                    .addAdditionalInfo("proxy", ipLocation.getProxy())
-                    .addAdditionalInfo("zip", ipLocation.getZip())
-                    .addAdditionalInfo("district", ipLocation.getDistrict())
-                    .addAdditionalInfo("currency", ipLocation.getCurrency())
-                    .addAdditionalInfo("ispName", ipLocation.getIspName());
+        if(Boolean.TRUE.equals(useLocation)) {
+            IpLocation ipLocation = IpUtil.extractLocation(device.getIp());
 
-            device.setLatitude(ipLocation.getLatitude());
-            device.setLongitude(ipLocation.getLongitude());
+            if (IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
+                device.setLocation(ipLocation.getCity());
+                device.setLatitude(ipLocation.getLatitude());
+                device.setLongitude(ipLocation.getLongitude());
+
+                device
+                        .addAdditionalInfo("continent", ipLocation.getContinent())
+                        .addAdditionalInfo("region", ipLocation.getRegion())
+                        .addAdditionalInfo("country", ipLocation.getCountry())
+                        .addAdditionalInfo("countryCode", ipLocation.getCountryCode())
+                        .addAdditionalInfo("timezone", ipLocation.getTimezone())
+                        .addAdditionalInfo("isp", ipLocation.getIspName())
+                        .addAdditionalInfo("org", ipLocation.getOrganization())
+                        .addAdditionalInfo("reverse", ipLocation.getReverse())
+                        .addAdditionalInfo("mobile", ipLocation.getMobile())
+                        .addAdditionalInfo("proxy", ipLocation.getProxy())
+                        .addAdditionalInfo("zip", ipLocation.getZip())
+                        .addAdditionalInfo("district", ipLocation.getDistrict())
+                        .addAdditionalInfo("currency", ipLocation.getCurrency())
+                        .addAdditionalInfo("ispName", ipLocation.getIspName());
+            }
         }
 
         Optional.ofNullable(getClient(request)).ifPresent(client -> device.setUserAgent(getUserAgent(client)));
@@ -52,7 +59,7 @@ public class DeviceUtil {
 
     public static String getUserAgent(HttpServletRequest request) {
         Client client = getClient(request);
-        if(Optional.ofNullable(client).isPresent()) {
+        if (Optional.ofNullable(client).isPresent()) {
             return getUserAgent(client);
         }
         return null;

@@ -21,10 +21,6 @@ public class IpUtil {
         return header.split(" *, *")[0];
     }
 
-    public static IpLocation extractLocation(HttpServletRequest request) {
-        return extractLocation(extractIp(request));
-    }
-
     public static IpLocation extractLocation(String ip) {
         return IpApiLocationHttpClient.call(ip);
     }
