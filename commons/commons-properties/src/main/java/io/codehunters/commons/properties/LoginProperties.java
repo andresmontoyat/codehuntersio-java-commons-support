@@ -27,5 +27,14 @@ public class LoginProperties {
     private String loginProcessingUrl = "/perform_login";
 
     @Builder.Default
+    private String loginSuccessUrl = "/account";
+
+    @Builder.Default
+    private String loginFailureUrl = "/login";
+
+    @Builder.Default
+    private String logoutUrl = "/login?logout=true";
+
+    @Builder.Default
     private int sessionAttempts = 3;
 }
