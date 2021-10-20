@@ -21,6 +21,12 @@ public class ApiError extends Api {
     public static final String API_ERROR_DEFAULT_CODE = "API-ERR";
 
     @JsonProperty("errors")
+    private String error;
+
+    @JsonProperty("trace")
+    private String trace;
+
+    @JsonProperty("errors")
     private List errors;
 
 }
