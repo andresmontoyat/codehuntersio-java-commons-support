@@ -40,13 +40,13 @@ public class JwtProvider {
 
     public String generateToken(String subject, Map<String, Object> claims, Long expiration) throws KeyStoreException {
         if (Optional.ofNullable(jwtProperties.getKeyStore()).isPresent()) {
-            return JwtUtil.generateJwt(getPrivateKey(), subject, claims, Optional.ofNullable(expiration).orElse(jwtProperties.getToken().getAccessTokenValiditySeconds()));
+            return JwtUtil.generateJwt(getPrivateKey(), subject, claims, expiration);
         }
-        return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, claims, Optional.ofNullable(expiration).orElse(jwtProperties.getToken().getAccessTokenValiditySeconds()));
+        return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, claims, expiration);
     }
 
     public String generateSigningKeyToken(String subject, SignatureAlgorithm signatureAlgorithm, Map<String, Object> claims, Long expiration) throws KeyStoreException {
-        return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, signatureAlgorithm, claims, Optional.ofNullable(expiration).orElse(jwtProperties.getToken().getAccessTokenValiditySeconds()));
+        return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, signatureAlgorithm, claims, expiration);
     }
 
     public Claims getBody(String token) throws KeyStoreException {
