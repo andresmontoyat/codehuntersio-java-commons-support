@@ -22,6 +22,8 @@ import java.util.Optional;
 @Setter
 public class JwtProvider {
 
+    public static final String BEARER = "Bearer";
+
     private final JWTProperties jwtProperties;
 
     private final UserDetailsService userDetailsService;
@@ -45,11 +47,15 @@ public class JwtProvider {
         return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, claims, expiration);
     }
 
-    public String generateSigningKeyToken(String subject, SignatureAlgorithm signatureAlgorithm, Map<String, Object> claims, Long expiration) throws KeyStoreException {
+    public String generateSigningKeyToken(String subject, SignatureAlgorithm signatureAlgorithm, Map<String, Object> claims, Long expiration) {
         return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, signatureAlgorithm, claims, expiration);
     }
 
     public Claims getBody(String token) throws KeyStoreException {
+        if(token.startsWith(BEARER)) {
+            token = token.substring(BEARER.length()).trim();
+        }
+
         if (Optional.ofNullable(jwtProperties.getKeyStore()).isPresent()) {
             return JwtUtil.parseJwt(getPublicKey(), token);
         }
