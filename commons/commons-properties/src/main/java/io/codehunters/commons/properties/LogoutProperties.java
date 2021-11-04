@@ -12,15 +12,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
-public class WebSecurityProperties {
+public class LogoutProperties {
 
     @Builder.Default
-    private LoginProperties login = LoginProperties.builder().build();
+    private String url = "/logout";
 
     @Builder.Default
-    private LogoutProperties logout = LogoutProperties.builder().build();
-
-    private String[] ignore;
-
-    private String[] secure;
+    private String successUrl = "/login?logout=true";
 }

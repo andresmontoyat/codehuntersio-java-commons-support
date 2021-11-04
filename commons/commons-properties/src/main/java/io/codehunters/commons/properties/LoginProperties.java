@@ -33,8 +33,5 @@ public class LoginProperties {
     private String loginFailureUrl = "/login";
 
     @Builder.Default
-    private String logoutUrl = "/login?logout=true";
-
-    @Builder.Default
     private int sessionAttempts = 3;
 }
