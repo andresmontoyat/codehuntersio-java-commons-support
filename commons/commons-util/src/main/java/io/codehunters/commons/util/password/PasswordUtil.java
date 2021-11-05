@@ -15,7 +15,7 @@ public class PasswordUtil {
     public static final String PASSWORD_HAS_NUMBERS = "^(?=.*[0-9])(?=\\S+$).{0,}$";
     public static final String PASSWORD_HAS_LOWER_CASE = "^(?=.*[a-z])(?=\\S+$).{0,}$";
     public static final String PASSWORD_HAS_UPPER_CASE = "^(?=.*[A-Z])(?=\\S+$).{0,}$";
-    public static final String PASSWORD_HAS_ALPHA_NUM = "^(?=.*[@#$%^&+=-_\\*])(?=\\S+$).{0,}$";
+    public static final String PASSWORD_HAS_SPECIAL_CHAR_CASE = "^(?=.*[@#$%^&+=-_\\*])(?=\\S+$).{0,}$";
     public static final String PASSWORD_LENGTH = ".{8,%d}$";
 
     public static final String PASSWORD_FULL_REGEX = "^"
@@ -87,12 +87,8 @@ public class PasswordUtil {
         return patternMatches(PASSWORD_HAS_UPPER_CASE, password);
     }
 
-    public static boolean hasAlphaNum(String password) {
-        return patternMatches(PASSWORD_HAS_ALPHA_NUM, password);
-    }
-
-    public static boolean hasNonSpaces(String password) {
-        return patternMatches(PASSWORD_HAS_NUMBERS, password);
+    public static boolean hasSpecialCharCase(String password) {
+        return patternMatches(PASSWORD_HAS_SPECIAL_CHAR_CASE, password);
     }
 
     private static boolean patternMatches(String regex, String text) {
