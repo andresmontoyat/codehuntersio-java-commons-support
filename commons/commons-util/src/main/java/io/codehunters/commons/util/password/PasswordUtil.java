@@ -15,14 +15,14 @@ public class PasswordUtil {
     public static final String PASSWORD_HAS_NUMBERS = "^(?=.*[0-9])(?=\\S+$).{0,}$";
     public static final String PASSWORD_HAS_LOWER_CASE = "^(?=.*[a-z])(?=\\S+$).{0,}$";
     public static final String PASSWORD_HAS_UPPER_CASE = "^(?=.*[A-Z])(?=\\S+$).{0,}$";
-    public static final String PASSWORD_HAS_SPECIAL_CHAR_CASE = "^(?=.*[@#$%^&+=-_\\*])(?=\\S+$).{0,}$";
+    public static final String PASSWORD_HAS_SPECIAL_CHAR_CASE = "^(?=.*[@#$%^&+=\\-_\\*])(?=\\S+$).{0,}$";
     public static final String PASSWORD_LENGTH = ".{8,%d}$";
 
     public static final String PASSWORD_FULL_REGEX = "^"
             + "(?=.*[0-9])"
             + "(?=.*[a-z])"
             + "(?=.*[A-Z])"
-            + "(?=.*[@#$%^&+=])"
+            + "(?=.*[@#$%^&+=\\-_\\*])"
             + "(?=\\S+$)";
 
     public static final int PASSWORD_MIN_LENGTH = 8;
@@ -95,6 +95,10 @@ public class PasswordUtil {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
         return matcher.matches();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(hasSpecialCharCase("andre$momn"));
     }
 
 }
