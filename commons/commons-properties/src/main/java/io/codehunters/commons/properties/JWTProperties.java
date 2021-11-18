@@ -17,6 +17,8 @@ public class JWTProperties {
 
     private String signingKey;
 
+    private boolean useKeyStore;
+
     private Resource keyStore;
 
     private String keyStorePassword;

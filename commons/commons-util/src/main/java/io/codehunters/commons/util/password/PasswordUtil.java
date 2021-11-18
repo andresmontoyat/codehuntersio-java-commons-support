@@ -96,9 +96,4 @@ public class PasswordUtil {
         Matcher matcher = pattern.matcher(text);
         return matcher.matches();
     }
-
-    public static void main(String[] args) {
-        System.out.println(hasSpecialCharCase("andre$momn"));
-    }
-
 }

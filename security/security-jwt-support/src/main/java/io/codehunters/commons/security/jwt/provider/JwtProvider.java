@@ -34,14 +34,14 @@ public class JwtProvider {
     }
 
     public String generateToken(String subject, Map<String, Object> claims) throws KeyStoreException {
-        if (Optional.ofNullable(jwtProperties.getKeyStore()).isPresent()) {
+        if (jwtProperties.isUseKeyStore()) {
             return JwtUtil.generateJwt(getPrivateKey(), subject, claims, Optional.ofNullable(jwtProperties.getToken().getAccessTokenValiditySeconds()).orElse(JwtUtil.DEFAULT_EXPIRATION));
         }
         return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, claims, Optional.ofNullable(jwtProperties.getToken().getAccessTokenValiditySeconds()).orElse(JwtUtil.DEFAULT_EXPIRATION));
     }
 
     public String generateToken(String subject, Map<String, Object> claims, Long expiration) throws KeyStoreException {
-        if (Optional.ofNullable(jwtProperties.getKeyStore()).isPresent()) {
+        if (jwtProperties.isUseKeyStore()) {
             return JwtUtil.generateJwt(getPrivateKey(), subject, claims, expiration);
         }
         return JwtUtil.generateJwt(jwtProperties.getSigningKey(), subject, claims, expiration);
@@ -56,7 +56,7 @@ public class JwtProvider {
             token = token.substring(BEARER.length()).trim();
         }
 
-        if (Optional.ofNullable(jwtProperties.getKeyStore()).isPresent()) {
+        if (jwtProperties.isUseKeyStore()) {
             return JwtUtil.parseJwt(getPublicKey(), token);
         }
         return JwtUtil.parseJwt(jwtProperties.getSigningKey(), token);
@@ -102,6 +102,14 @@ public class JwtProvider {
         } catch (Exception e) {
             throw new KeyStoreException(e);
         }
+    }
+
+    public String getSigningKey() {
+        return jwtProperties.getSigningKey();
+    }
+
+    public boolean useKeyStore() {
+        return jwtProperties.isUseKeyStore();
     }
 
     public KeyStore keyStore() throws KeyStoreException {
