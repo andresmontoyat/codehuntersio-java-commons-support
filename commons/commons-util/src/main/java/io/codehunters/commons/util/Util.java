@@ -3,6 +3,7 @@ package io.codehunters.commons.util;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,6 +27,18 @@ public class Util {
 
     public static String uuid(String prefix) {
         return prefix + uuid();
+    }
+
+    public static String trimToLowerCase(String text) {
+        String replace = text.trim();
+        replace = replace.replaceAll("\\s", "");
+        return replace.toLowerCase(Locale.ROOT);
+    }
+
+    public static String trimToUpperCase(String text) {
+        String replace = text.trim();
+        replace = replace.replaceAll("\\s", "");
+        return replace.toUpperCase(Locale.ROOT);
     }
 
 }
