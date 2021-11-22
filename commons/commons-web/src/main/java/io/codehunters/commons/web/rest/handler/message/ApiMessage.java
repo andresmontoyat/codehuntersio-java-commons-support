@@ -1,7 +1,7 @@
-package io.codehunters.commons.web.handler.message;
+package io.codehunters.commons.web.rest.handler.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.codehunters.commons.web.handler.message.support.Api;
+import io.codehunters.commons.web.rest.handler.message.support.Api;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

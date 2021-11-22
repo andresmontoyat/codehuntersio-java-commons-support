@@ -1,4 +1,4 @@
-package io.codehunters.commons.web.handler.message.support;
+package io.codehunters.commons.web.rest.handler.message.support;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

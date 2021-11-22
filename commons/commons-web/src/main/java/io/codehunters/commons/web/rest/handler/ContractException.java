@@ -1,4 +1,4 @@
-package io.codehunters.commons.web.handler;
+package io.codehunters.commons.web.rest.handler;
 
 import io.codehunters.commons.util.ex.ErrorException;
 import lombok.Getter;

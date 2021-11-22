@@ -1,4 +1,4 @@
-package io.codehunters.commons.web.handler;
+package io.codehunters.commons.web.rest.handler;
 
 import lombok.Getter;
 import lombok.Setter;
