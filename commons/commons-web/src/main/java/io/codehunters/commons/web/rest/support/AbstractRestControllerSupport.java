@@ -1,6 +1,6 @@
 package io.codehunters.commons.web.rest.support;
 
-import io.codehunters.commons.web.rest.handler.RestException;
+import io.codehunters.commons.web.handler.RestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
