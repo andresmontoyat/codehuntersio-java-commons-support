@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Gradle Build Workflow
+    name: Codehunters IO Java Commons Build Workflow
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
       - name: Build and Analyze
         run: gradle --build-cache build -x test
       - name: Publish to gitHub packages
-        run: gradle publish
+        run: gradle publish -x test
         env:
           GH_PACKAGES_USERNAME: ${{ github.actor }}
           GH_PACKAGES_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
