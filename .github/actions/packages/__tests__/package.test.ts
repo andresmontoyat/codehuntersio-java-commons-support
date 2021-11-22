@@ -1,4 +1,8 @@
-import {deletePackagesVersions, searchPackagesVersions, SearchPackageVersionRequest} from '../src/packageService'
+import {
+  deletePackagesVersions,
+  searchPackagesVersions,
+  SearchPackageVersionRequest
+} from '../src/packageService'
 import packages from '../src/packages'
 
 describe('Package Operation Service', () => {
