@@ -50,7 +50,7 @@ subprojects {
         repositories {
             maven {
                 name = "GitHubPackages"
-                url = uri("${github_packages_url}")
+                url = uri("${github_packages_url}/codehuntersio-java-commons-support")
                 credentials {
                     username = System.getenv("GH_PACKAGES_USERNAME")
                     password = System.getenv("GH_PACKAGES_TOKEN")

@@ -27,6 +27,6 @@ public class ApiError extends Api {
     private Throwable trace;
 
     @JsonProperty("errors")
-    private List errors;
+    private List<? extends Object> errors;
 
 }
