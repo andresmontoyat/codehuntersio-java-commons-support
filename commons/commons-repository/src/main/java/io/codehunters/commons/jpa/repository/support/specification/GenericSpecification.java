@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 
 public class GenericSpecification<T> implements Specification<T> {
 
-    private SearchCriteria searchCriteria;
+    private final SearchCriteria searchCriteria;
 
     public GenericSpecification(final SearchCriteria searchCriteria){
         this.searchCriteria = searchCriteria;

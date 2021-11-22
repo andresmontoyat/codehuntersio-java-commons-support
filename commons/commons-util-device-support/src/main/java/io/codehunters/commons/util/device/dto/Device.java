@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,7 +17,9 @@ import java.util.Map;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 @SuppressWarnings("unchecked")
-public class Device {
+public class Device implements Serializable {
+
+    private static final long serialVersionUID = -6403639730258737259L;
 
     private Long serialId;
 
