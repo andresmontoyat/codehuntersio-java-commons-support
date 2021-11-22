@@ -7,7 +7,6 @@ export default [
   'io.codehunters.commons.commons-util-template-mustache-support',
   'io.codehunters.commons.commons-util-mail-support',
   'io.codehunters.commons.commons-properties',
-  'io.codehunters.commons.commons-remote-properties',
   'io.codehunters.commons.commons-dto',
   'io.codehunters.commons.commons-repository',
   'io.codehunters.commons.commons-jpa-mapper-support',
