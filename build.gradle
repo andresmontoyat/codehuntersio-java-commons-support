@@ -31,11 +31,11 @@ subprojects {
         implementation 'org.springframework:spring-context'
         implementation 'org.springframework:spring-core'
         implementation 'org.springframework:spring-context-support'
-        implementation 'org.projectlombok:lombok:1.18.20'
-        implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+        implementation 'org.projectlombok:lombok:1.18.22'
+        implementation 'org.mapstruct:mapstruct:1.5.0.Beta2'
 
-        annotationProcessor 'org.projectlombok:lombok:1.18.20'
-        annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+        annotationProcessor 'org.projectlombok:lombok:1.18.22'
+        annotationProcessor "org.mapstruct:mapstruct-processor:1.5.0.Beta2"
         testImplementation 'junit:junit'
     }
 
