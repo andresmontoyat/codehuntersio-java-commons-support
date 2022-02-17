@@ -110,8 +110,4 @@ public class StringSimplifier {
         str = DIACRITICS_AND_FRIENDS.matcher(str).replaceAll("");
         return str;
     }
-
-    public static void main(String[] args) {
-        System.out.println(simplifiedString("Carlos Andrés ñeñe %tpt"));
-    }
 }

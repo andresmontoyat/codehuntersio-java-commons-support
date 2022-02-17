@@ -32,7 +32,7 @@ public class GenericSpecificationsBuilder<T> {
         return with(attribute, operation, isOr, Arrays.asList(value));
     }
 
-    public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final boolean isOr, final List<Object> values) {
+    public GenericSpecificationsBuilder<T> with(final String attribute, final SearchOperation operation, final boolean isOr, final List<? extends Object> values) {
         params.add(SearchCriteria.builder()
                 .attribute(attribute)
                 .operation(operation)
