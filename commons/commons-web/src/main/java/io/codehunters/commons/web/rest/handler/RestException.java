@@ -17,7 +17,7 @@ public class RestException extends ContractException {
         super(message, DEFAULT_ERROR_CODE, status, null);
     }
 
-    public RestException(String message, HttpStatus status, List<? extends Object> errors) {
+    public RestException(String message, HttpStatus status, List<? extends java.io.Serializable> errors) {
         super(message, DEFAULT_ERROR_CODE, status, errors);
     }
 

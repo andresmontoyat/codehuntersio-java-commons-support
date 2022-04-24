@@ -16,13 +16,13 @@ public class ContractException extends ErrorException {
 
     private final HttpStatus status;
 
-    private final List<? extends Object> errors;
+    private final List<? extends java.io.Serializable> errors;
 
     public ContractException(String message, HttpStatus status) {
         this(message, DEFAULT_ERROR_CODE, status, null);
     }
 
-    public ContractException(String message, HttpStatus status, List<? extends Object> errors) {
+    public ContractException(String message, HttpStatus status, List<? extends java.io.Serializable> errors) {
         this(message, DEFAULT_ERROR_CODE, status, errors);
     }
 
@@ -30,7 +30,7 @@ public class ContractException extends ErrorException {
         this(message, code, status, null);
     }
 
-    public ContractException(String message, String code, HttpStatus status, List<? extends Object> errors) {
+    public ContractException(String message, String code, HttpStatus status, List<? extends java.io.Serializable> errors) {
         super(message, code);
 
         this.status = status;
@@ -45,7 +45,7 @@ public class ContractException extends ErrorException {
         this(message, code, cause, status, null);
     }
 
-    public ContractException(String message, String code, Throwable cause, HttpStatus status, List<? extends Object> errors) {
+    public ContractException(String message, String code, Throwable cause, HttpStatus status, List<? extends java.io.Serializable> errors) {
         super(message, code, cause);
 
         this.status = status;

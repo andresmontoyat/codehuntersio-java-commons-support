@@ -23,5 +23,5 @@ public class SearchCriteria implements Serializable {
 
     private boolean isOr;
 
-    private List<? extends Object> values;
+    private List<? extends Serializable> values;
 }

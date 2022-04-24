@@ -27,7 +27,7 @@ public class IpApiLocationHttpClient {
                 if (result.isPresent()) {
 
                     IpLocation ipLocation = response.getBody();
-                    if (IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
+                    if ((ipLocation != null) && IpLocation.IP_API_STATUS_SUCCESS.equals(ipLocation.getStatus())) {
                         return ipLocation;
                     }
                 }

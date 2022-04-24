@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -33,11 +31,11 @@ public class Device implements Serializable {
 
     private Double longitude;
 
-    private Map<String, Object> additionalInfo;
+    private java.util.Map<String, Serializable> additionalInfo;
 
-    public Device addAdditionalInfo(String key, Object value) {
+    public Device addAdditionalInfo(String key, Serializable value) {
         if(this.additionalInfo == null) {
-            this.additionalInfo = new HashMap<>();
+            this.additionalInfo = new java.util.HashMap<>();
         }
 
         this.additionalInfo.put(key, value);
